@@ -298,15 +298,117 @@
         }
 
         /* Safety Information Section Styles */
-.safety-info-card {
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
+        .safety-info-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
 
-.safety-info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+        .safety-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mobile-specific fixes */
+        @media (max-width: 767px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .safety-test-card {
+                padding: 1.5rem !important;
+            }
+            
+            .safety-info-card {
+                padding: 1.5rem !important;
+            }
+            
+            .hero-text-gradient {
+                font-size: 2.25rem !important;
+            }
+            
+            .test-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .highlight-offer {
+                text-align: center;
+                width: 100%;
+            }
+            
+            /* Fix for mobile menu */
+            #mobileMenu {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Ensure no horizontal overflow */
+            body, html {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Fix for image positioning */
+            .scooter-image {
+                margin: 0 auto;
+                display: block;
+            }
+        }
+        
+        /* Additional responsive fixes */
+        @media (max-width: 640px) {
+            .px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            
+            .px-8 {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            /* Ensure all containers have proper padding */
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Fix for header padding */
+            header .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Fix for footer padding */
+            footer .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Center align text on mobile */
+            .text-center-mobile {
+                text-align: center;
+            }
+            
+            /* Adjust font sizes for mobile */
+            h2 {
+                font-size: 1.875rem !important;
+            }
+            
+            h3 {
+                font-size: 1.5rem !important;
+            }
+            
+            p {
+                font-size: 1rem !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-light-yellow font-jannat" dir="rtl">
@@ -316,37 +418,21 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             
             <!-- Logo/Brand Link -->
-            <!-- Logo/Brand Link -->
-<a href="/" class="flex items-center" aria-label="بيب بيب الرئيسية">
-    <div class="relative">
-        <div class="absolute -inset-1 bg-primary-yellow rounded-full blur opacity-30"></div>
-        <img src="logo.png" alt="لوجو بيب بيب" class="h-16 w-16 object-contain relative">
-    </div>
-</a>
+            <a href="/" class="flex items-center" aria-label="بيب بيب الرئيسية">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-primary-yellow rounded-full blur opacity-30"></div>
+                    <img src="logo.png" alt="لوجو بيب بيب" class="h-16 w-16 object-contain relative">
+                </div>
+            </a>
 
             <!-- Right side: Buttons and Language Selector -->
-            <div class="hidden md:flex items-center space-x-4">
-                
-                <!-- Menu Button -->
-                <a href="#" class="flex items-center p-2 rounded-full text-primary-black hover:bg-gray-100 transition-all duration-300 group magnetic-btn" aria-label="القائمة">
-                    <span class="mail-icon">
-                        <svg viewBox="0 0 200 200" data-type="shape">
-                            <g>
-                                <path d="M35.572 38.15h128.855c5.693 0 10.308-4.616 10.308-10.308s-4.616-10.308-10.308-10.308H35.572c-5.693 0-10.308 4.616-10.308 10.308S29.88 38.15 35.572 38.15z"></path>
-                                <path d="M164.428 89.692H35.572c-5.693 0-10.308 4.616-10.308 10.308s4.616 10.308 10.308 10.308h128.855c5.693 0 10.308-4.616 10.308-10.308s-4.615-10.308-10.307-10.308z"></path>
-                                <path d="M164.428 161.85H87.114c-5.693 0-10.308 4.616-10.308 10.308 0 5.693 4.616 10.308 10.308 10.308h77.313c5.693 0 10.308-4.616 10.308-10.308.001-5.692-4.615-10.308-10.307-10.308z"></path>
-                            </g>
-                        </svg>
-                    </span>
-                    <span class="ml-1 text-sm font-medium" data-translate="menu">القائمة</span>
-                </a>
-
+            <div class="hidden md:flex items-center space-x-4 space-x-reverse">
                 <!-- Language Selector Dropdown -->
                 <div class="relative inline-block text-left">
                     <button id="langButton" class="lang-dropdown inline-flex justify-center items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-all duration-300 magnetic-btn" aria-expanded="false" aria-haspopup="true">
-                        <img id="currentLangFlag" src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/SAU.png" alt="Arabic Flag" class="h-4 w-4 mr-1 rounded-full">
+                        <img id="currentLangFlag" src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/SAU.png" alt="Arabic Flag" class="h-4 w-4 ml-1 rounded-full">
                         <span id="currentLangCode">AR</span>
-                        <svg class="-mr-1 ml-2 h-4 w-4 transition-transform duration-200 chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <svg class="-ml-1 mr-2 h-4 w-4 transition-transform duration-200 chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.97l3.71-3.74a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                         </svg>
                     </button>
@@ -355,25 +441,20 @@
                         <!-- Language options -->
                         <div class="py-1" role="none">
                             <a href="#" class="lang-option flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-all duration-200" data-lang="ar">
-                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/SAU.png" alt="Arabic Flag" class="h-4 w-4 mr-2 rounded-full"> AR
+                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/SAU.png" alt="Arabic Flag" class="h-4 w-4 ml-2 rounded-full"> AR
                             </a>
                             <a href="#" class="lang-option flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-all duration-200" data-lang="en">
-                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/USA.png" alt="English Flag" class="h-4 w-4 mr-2 rounded-full"> EN
+                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/USA.png" alt="English Flag" class="h-4 w-4 ml-2 rounded-full"> EN
                             </a>
                             <a href="#" class="lang-option flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-all duration-200" data-lang="de">
-                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/DEU.png" alt="German Flag" class="h-4 w-4 mr-2 rounded-full"> DE
+                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/DEU.png" alt="German Flag" class="h-4 w-4 ml-2 rounded-full"> DE
                             </a>
                             <a href="#" class="lang-option flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-all duration-200" data-lang="es">
-                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/ESP.png" alt="Spanish Flag" class="h-4 w-4 mr-2 rounded-full"> ES
+                                <img src="https://static.parastorage.com/services/linguist-flags/1.969.0/assets/flags/corner/ESP.png" alt="Spanish Flag" class="h-4 w-4 ml-2 rounded-full"> ES
                             </a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Download App Button -->
-                <a href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2 text-sm font-semibold text-white bg-primary-black rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-[1.02] active:scale-95 magnetic-btn pulse-glow" data-translate="downloadApp">
-                    حمل التطبيق الآن
-                </a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -389,19 +470,6 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100 pb-4">
             <div class="flex flex-col space-y-2 px-4 pt-2">
-                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-all duration-200">
-                    <span class="mail-icon mr-2">
-                        <svg viewBox="0 0 200 200" data-type="shape">
-                            <g>
-                                <path d="M35.572 38.15h128.855c5.693 0 10.308-4.616 10.308-10.308s-4.616-10.308-10.308-10.308H35.572c-5.693 0-10.308 4.616-10.308 10.308S29.88 38.15 35.572 38.15z"></path>
-                                <path d="M164.428 89.692H35.572c-5.693 0-10.308 4.616-10.308 10.308s4.616 10.308 10.308 10.308h128.855c5.693 0 10.308-4.616 10.308-10.308s-4.615-10.308-10.307-10.308z"></path>
-                                <path d="M164.428 161.85H87.114c-5.693 0-10.308 4.616-10.308 10.308 0 5.693 4.616 10.308 10.308 10.308h77.313c5.693 0 10.308-4.616 10.308-10.308.001-5.692-4.615-10.308-10.307-10.308z"></path>
-                            </g>
-                        </svg>
-                    </span>
-                    <span data-translate="menu">القائمة</span>
-                </a>
-                
                 <!-- Simple language link/placeholder for mobile -->
                 <div class="px-3 py-2 text-sm font-medium text-gray-700 rounded-lg">
                     <span data-translate="language">اللغة:</span> 
@@ -415,34 +483,29 @@
                     <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded-full" data-lang="de">Deutsch</button>
                     <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded-full" data-lang="es">Español</button>
                 </div>
-
-                <!-- Download App Button -->
-                <a href="#" target="_blank" rel="noopener noreferrer" class="text-center mt-2 px-4 py-2 text-sm font-semibold text-white bg-primary-yellow text-primary-black rounded-full shadow-lg hover:bg-dark-yellow transition-all duration-300 magnetic-btn" data-translate="downloadApp">
-                    حمل التطبيق الآن
-                </a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Safety Test Section -->
-        <section class="safety-test-section py-16 px-4">
+        <section class="safety-test-section py-12 md:py-16 px-4">
             <div class="container mx-auto">
-                <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-10">
                     <!-- Text Content -->
-                    <div class="lg:w-1/2" data-aos="fade-right">
-                        <div class="safety-test-card p-8 lg:p-10">
-                            <h2 class="text-4xl lg:text-5xl font-bold text-primary-black mb-6 leading-tight" data-translate="safetyTestTitle">
+                    <div class="lg:w-1/2 w-full" data-aos="fade-right">
+                        <div class="safety-test-card p-6 md:p-8 lg:p-10">
+                            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-black mb-4 md:mb-6 leading-tight text-center-mobile" data-translate="safetyTestTitle">
                                 تحس إنك مدرك تعليمات السلامة والأمان؟
                             </h2>
-                            <p class="text-lg lg:text-xl text-gray-700 mb-8 leading-relaxed" data-translate="safetyTestDescription">
+                            <p class="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed text-center-mobile" data-translate="safetyTestDescription">
                                 أختبر اختبار بيب بيب للأمان وخذ لك كود خصم وخوذة مجانية
                             </p>
-                            <div class="highlight-offer animate-pulse" data-translate="safetyTestOffer">
+                            <div class="highlight-offer animate-pulse text-center-mobile" data-translate="safetyTestOffer">
                                 احصل على خصم خاص + خوذة مجانية عند اجتياز الاختبار
                             </div>
-                            <div class="mt-8">
-                                <button class="test-button magnetic-btn" data-translate="startSafetyTest">
+                            <div class="mt-6 md:mt-8">
+                                <button class="test-button magnetic-btn w-full md:w-auto" data-translate="startSafetyTest">
                                     ابدأ اختبار السلامة الآن
                                 </button>
                             </div>
@@ -450,13 +513,14 @@
                     </div>
                     
                     <!-- Image Content -->
-                    <div class="lg:w-1/2" data-aos="fade-left">
+                    <div class="lg:w-1/2 w-full mt-8 lg:mt-0" data-aos="fade-left">
                         <div class="relative">
                             <img 
-                                src="https://static.wixstatic.com/media/6c36cc_18a1f94ce0594900881067692be8b02d~mv2.jpg/v1/fill/w_495,h_495,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1Y5A8734.jpg" 
-                                alt="سكوترات كهربائية السعودية" 
-                                class="scooter-image w-full max-w-md mx-auto lg:max-w-lg floating"
-                            >
+    src="scooters.jpeg" 
+    alt="سكوترات كهربائية السعودية" 
+    class="scooter-image w-full max-w-xs md:max-w-md mx-auto lg:max-w-lg floating"
+>
+                            <!-- التعديل هنا: نقل العنصر إلى الزاوية اليسرى السفلية -->
                             <div class="absolute -bottom-4 -left-4 bg-primary-yellow text-primary-black px-4 py-2 rounded-full font-bold text-sm shadow-lg" data-translate="safetyFirst">
                                 سلامتك أولاً!
                             </div>
@@ -467,147 +531,141 @@
         </section>
 
         <!-- Safety & Values Section -->
-<section class="py-16 px-4 bg-white">
-    <div class="container mx-auto">
-        <!-- Main Title -->
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-5xl lg:text-6xl font-bold text-primary-black mb-4" data-translate="valuesTitle">
-                <span class="text-primary-black">لازم تعرف قبل ما تنطلق</span>
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-translate="valuesDescription">
-                في بيب بيب، نؤمن بأن التنقل الذكي يجمع بين <span class="text-primary-yellow font-bold">المرونة</span>، 
-                <span class="text-primary-yellow font-bold">الأمان</span>، و
-                <span class="text-primary-yellow font-bold">الاستدامة</span>
-            </p>
-        </div>
+        <section class="py-12 md:py-16 px-4 bg-white">
+            <div class="container mx-auto">
+                <!-- Main Title -->
+                <div class="text-center mb-8 md:mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-black mb-4" data-translate="valuesTitle">
+                        <span class="text-primary-black">لازم تعرف قبل ما تنطلق</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" data-translate="valuesDescription">
+                        في بيب بيب، نؤمن بأن التنقل الذكي يجمع بين <span class="text-primary-yellow font-bold">المرونة</span>، 
+                        <span class="text-primary-yellow font-bold">الأمان</span>، و
+                        <span class="text-primary-yellow font-bold">الاستدامة</span>
+                    </p>
+                </div>
 
-        <!-- Content Columns -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            <!-- Left Column -->
-            <div class="space-y-8">
-                <!-- First Card - المرونة والسهولة -->
-                <div class="safety-info-card p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-right">
-                    <div class="flex items-start mb-4">
-                        <div class="mr-4 flex-shrink-0">
-                            <div class="w-16 h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
-                                <svg class="w-8 h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
+                <!-- Content Columns -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
+                    <!-- Left Column -->
+                    <div class="space-y-6 md:space-y-8">
+                        <!-- First Card - المرونة والسهولة -->
+                        <div class="safety-info-card p-4 md:p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-right">
+                            <div class="flex items-start mb-4">
+                                <div class="ml-4 flex-shrink-0">
+                                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 md:w-8 md:h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold text-primary-black" data-translate="flexibilityTitle">تنقل سلس يوافق إيقاع حياتك</h3>
                             </div>
+                            <p class="text-base md:text-lg text-gray-700 leading-relaxed" data-translate="flexibilityDescription">
+                                مع بيب بيب، تستمتع بخدمة استئجار سكوترات ودراجات داخل المدينة بشكل يواكب نمط حياتك السريع. 
+                                وقت أقل يُهدر في الطريق، تجربة مريحة لميزانيتك، ليكون خيارك الموثوق للمشاوير القصيرة.
+                            </p>
                         </div>
-                        <h3 class="text-2xl font-bold text-primary-black" data-translate="flexibilityTitle">تنقل سلس يوافق إيقاع حياتك</h3>
-                    </div>
-                    <p class="text-lg text-gray-700 leading-relaxed" data-translate="flexibilityDescription">
-                        مع بيب بيب، تستمتع بخدمة استئجار سكوترات ودراجات داخل المدينة بشكل يواكب نمط حياتك السريع. 
-                        وقت أقل يُهدر في الطريق، تجربة مريحة لميزانيتك، ليكون خيارك الموثوق للمشاوير القصيرة.
-                    </p>
-                </div>
 
-                <!-- Second Card - الأمان -->
-                <div class="safety-info-card p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-right" data-aos-delay="100">
-                    <div class="flex items-start mb-4">
-                        <div class="mr-4 flex-shrink-0">
-                            <div class="w-16 h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
-                                <svg class="w-8 h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                </svg>
+                        <!-- Second Card - الأمان -->
+                        <div class="safety-info-card p-4 md:p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-right" data-aos-delay="100">
+                            <div class="flex items-start mb-4">
+                                <div class="ml-4 flex-shrink-0">
+                                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 md:w-8 md:h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold text-primary-black" data-translate="safetyTitle">أمان عالي وتقنيات متطورة</h3>
                             </div>
+                            <p class="text-base md:text-lg text-gray-700 leading-relaxed" data-translate="safetyDescription">
+                                نقدّم منظومة متكاملة من الحلول التقنية التي تجمع بين الأمان العالي، والكفاءة في التشغيل، 
+                                والاهتمام بالاستدامة. نطوّر تقنياتنا باستمرار لتكون التجربة أسهل، أوضح، وأقرب لاحتياجك اليومي.
+                            </p>
                         </div>
-                        <h3 class="text-2xl font-bold text-primary-black" data-translate="safetyTitle">أمان عالي وتقنيات متطورة</h3>
                     </div>
-                    <p class="text-lg text-gray-700 leading-relaxed" data-translate="safetyDescription">
-                        نقدّم منظومة متكاملة من الحلول التقنية التي تجمع بين الأمان العالي، والكفاءة في التشغيل، 
-                        والاهتمام بالاستدامة. نطوّر تقنياتنا باستمرار لتكون التجربة أسهل، أوضح، وأقرب لاحتياجك اليومي.
-                    </p>
-                </div>
-            </div>
 
-            <!-- Right Column -->
-            <div class="space-y-8">
-                <!-- Third Card - الاستدامة -->
-                <div class="safety-info-card p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-left">
-                    <div class="flex items-start mb-4">
-                        <div class="mr-4 flex-shrink-0">
-                            <div class="w-16 h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
-                                <svg class="w-8 h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
+                    <!-- Right Column -->
+                    <div class="space-y-6 md:space-y-8">
+                        <!-- Third Card - الاستدامة -->
+                        <div class="safety-info-card p-4 md:p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-left">
+                            <div class="flex items-start mb-4">
+                                <div class="ml-4 flex-shrink-0">
+                                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 md:w-8 md:h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold text-primary-black" data-translate="sustainabilityTitle">تنقل مستدام وبيئة أنظف</h3>
                             </div>
+                            <p class="text-base md:text-lg text-gray-700 leading-relaxed" data-translate="sustainabilityDescription">
+                                هدفنا أن يكون التنقل داخل المدينة أكثر سلاسة وبحلول تقنية مدروسة تخدم المستخدم والبيئة في نفس الوقت. 
+                                نساهم في بناء مدن أكثر نشاطًا، كفاءة، واستدامة من خلال تقليل الازدحام والأثر البيئي.
+                            </p>
                         </div>
-                        <h3 class="text-2xl font-bold text-primary-black" data-translate="sustainabilityTitle">تنقل مستدام وبيئة أنظف</h3>
-                    </div>
-                    <p class="text-lg text-gray-700 leading-relaxed" data-translate="sustainabilityDescription">
-                        هدفنا أن يكون التنقل داخل المدينة أكثر سلاسة وبحلول تقنية مدروسة تخدم المستخدم والبيئة في نفس الوقت. 
-                        نساهم في بناء مدن أكثر نشاطًا، كفاءة، واستدامة من خلال تقليل الازدحام والأثر البيئي.
-                    </p>
-                </div>
 
-                <!-- Fourth Card - المسؤولية المجتمعية -->
-                <div class="safety-info-card p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-left" data-aos-delay="100">
-                    <div class="flex items-start mb-4">
-                        <div class="mr-4 flex-shrink-0">
-                            <div class="w-16 h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
-                                <svg class="w-8 h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
+                        <!-- Fourth Card - المسؤولية المجتمعية -->
+                        <div class="safety-info-card p-4 md:p-6 rounded-xl bg-light-yellow border-l-4 border-primary-yellow" data-aos="fade-left" data-aos-delay="100">
+                            <div class="flex items-start mb-4">
+                                <div class="ml-4 flex-shrink-0">
+                                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary-yellow rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 md:w-8 md:h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold text-primary-black" data-translate="responsibilityTitle">مسؤولية مجتمعية وشراكات مستدامة</h3>
                             </div>
+                            <p class="text-base md:text-lg text-gray-700 leading-relaxed" data-translate="responsibilityDescription">
+                                نعمل على تقديم حلول تساعد الناس يتحرّكون بسهولة، وتساهم في بناء مدن أكثر نشاطًا. 
+                                من خلال شراكتنا مع المشغلين المحليين، نفتح أبواب دخل مستدام ونساهم في تطوير خدمات التنقل الحضري.
+                            </p>
                         </div>
-                        <h3 class="text-2xl font-bold text-primary-black" data-translate="responsibilityTitle">مسؤولية مجتمعية وشراكات مستدامة</h3>
                     </div>
-                    <p class="text-lg text-gray-700 leading-relaxed" data-translate="responsibilityDescription">
-                        نعمل على تقديم حلول تساعد الناس يتحرّكون بسهولة، وتساهم في بناء مدن أكثر نشاطًا. 
-                        من خلال شراكتنا مع المشغلين المحليين، نفتح أبواب دخل مستدام ونساهم في تطوير خدمات التنقل الحضري.
-                    </p>
                 </div>
-            </div>
-        </div>
 
-        <!-- Expansion Journey Section -->
-        <div class="bg-primary-black rounded-2xl p-8 lg:p-12 text-white" data-aos="fade-up">
-            <div class="flex flex-col lg:flex-row items-center gap-8">
-                <div class="lg:w-2/3">
-                    <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-primary-yellow" data-translate="expansionTitle">رحلة التوسع</h3>
-                    <p class="text-lg lg:text-xl leading-relaxed mb-6" data-translate="expansionDescription1">
-                        بدأت رحلة بيب بيب من المملكة العربية السعودية، واليوم نوسّع حضورنا بخطوات واثقة لكي نصل لمدن ومجتمعات جديدة. 
-                        نقدّم تجربة تنقّل تجمع بين المتعة، المرونة، وسهولة الاستخدام، لنخدم مختلف احتياجات التنقّل داخل المدينة بأسلوب عملي ومريح.
-                    </p>
-                    <p class="text-lg lg:text-xl leading-relaxed" data-translate="expansionDescription2">
-                        نؤمن إن التنقّل الحديث جزء أساسي من جودة الحياة، لذلك نعمل باستمرار على تقديم حلول تساعد الناس يتحرّكون بسهولة، 
-                        وتساهم في بناء مدن أكثر نشاطًا، وكفاءة، واستدامة.
-                    </p>
-                </div>
-                <div class="lg:w-1/3 flex justify-center">
-                    <div class="relative">
-                        <div class="w-48 h-48 bg-primary-yellow rounded-full flex items-center justify-center">
-                            <svg class="w-24 h-24 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                            </svg>
+                <!-- Expansion Journey Section -->
+                <div class="bg-primary-black rounded-2xl p-6 md:p-8 lg:p-12 text-white" data-aos="fade-up">
+                    <div class="flex flex-col lg:flex-row items-center gap-6 md:gap-8">
+                        <div class="lg:w-2/3">
+                            <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-primary-yellow" data-translate="expansionTitle">رحلتنا</h3>
+                            <p class="text-base md:text-lg lg:text-xl leading-relaxed mb-6" data-translate="expansionDescription1">
+                                بدأت رحلة بيب بيب من المملكة العربية السعودية، واليوم نوسّع حضورنا بخطوات واثقة لكي نصل لمدن ومجتمعات جديدة. 
+                                نقدّم تجربة تنقّل تجمع بين المتعة، المرونة، وسهولة الاستخدام، لنخدم مختلف احتياجات التنقّل داخل المدينة بأسلوب عملي ومريح.
+                            </p>
                         </div>
-                        <div class="absolute -bottom-4 -right-4 bg-primary-yellow text-primary-black px-4 py-2 rounded-full font-bold text-sm shadow-lg" data-translate="expansionTagline">
-                            من السعودية للعالم
+                        <div class="lg:w-1/3 flex justify-center mt-6 lg:mt-0">
+                            <div class="relative">
+                                <div class="w-32 h-32 md:w-48 md:h-48 bg-primary-yellow rounded-full flex items-center justify-center">
+                                    <svg class="w-16 h-16 md:w-24 md:h-24 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
+                                </div>
+                                <div class="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 bg-primary-yellow text-primary-black px-3 py-1 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-lg" data-translate="expansionTagline">
+                                    من السعودية للعالم
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-        
+        </section>
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-primary-black text-white py-10">
+    <footer class="bg-primary-black text-white py-8 md:py-10">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <!-- Copyright -->
-                <p class="text-sm text-gray-400" data-translate="copyright">&copy; 2024 تطبيق بيب بيب. جميع الحقوق محفوظة.</p>
+                <p class="text-sm text-gray-400 text-center md:text-left" data-translate="copyright">&copy; 2025 تطبيق بيب بيب. جميع الحقوق محفوظة.</p>
                 
                 <!-- Footer Links -->
                 <div class="flex space-x-6 text-sm">
-                    <a href="#" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="privacy">سياسة الخصوصية</a>
-                    <a href="#" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="terms">شروط الخدمة</a>
-                    <a href="#" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="contact">اتصل بنا</a>
+                    <a href="privacy.html" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="privacy">سياسة الخصوصية</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="terms">شروط الخدمة</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="contact">اتصل بنا</a>
                 </div>
 
                 <!-- Social Icons -->
@@ -634,7 +692,6 @@
         const translations = {
             ar: {
                 // Header
-                menu: "القائمة",
                 downloadApp: "حمل التطبيق الآن",
                 language: "اللغة",
                 
@@ -656,20 +713,18 @@
                 sustainabilityDescription: "هدفنا أن يكون التنقل داخل المدينة أكثر سلاسة وبحلول تقنية مدروسة تخدم المستخدم والبيئة في نفس الوقت. نساهم في بناء مدن أكثر نشاطًا، كفاءة، واستدامة من خلال تقليل الازدحام والأثر البيئي.",
                 responsibilityTitle: "مسؤولية مجتمعية وشراكات مستدامة",
                 responsibilityDescription: "نعمل على تقديم حلول تساعد الناس يتحرّكون بسهولة، وتساهم في بناء مدن أكثر نشاطًا. من خلال شراكتنا مع المشغلين المحليين، نفتح أبواب دخل مستدام ونساهم في تطوير خدمات التنقل الحضري.",
-                expansionTitle: "رحلة التوسع",
-                expansionDescription1: "بدأت رحلة بيب بيب من المملكة العربية السعودية، واليوم نوسّع حضورنا بخطوات واثقة لكي نصل لمدن ومجتمعات جديدة. نقدّم تجربة تنقّل تجمع بين المتعة، المرونة، وسهولة الاستخدام، لنخدم مختلف احتياجات التنقّل داخل المدينة بأسلوب عملي ومريح.",
-                expansionDescription2: "نؤمن إن التنقّل الحديث جزء أساسي من جودة الحياة، لذلك نعمل باستمرار على تقديم حلول تساعد الناس يتحرّكون بسهولة، وتساهم في بناء مدن أكثر نشاطًا، وكفاءة، واستدامة.",
+                expansionTitle: "رحلتنا ",
+                expansionDescription1: "بدأت رحلة بيب بيب من منطلق التشارك الربحي والتشغيلي من المملكة العربية السعودية، واليوم نوسّع حضورنا بخطوات واثقة لكي نصل لمدن ومجتمعات جديدة. نقدّم تجربة تنقّل تجمع بين المتعة، المرونة، وسهولة الاستخدام، لنخدم مختلف احتياجات التنقّل داخل المدينة بأسلوب عملي ومريح.",
                 expansionTagline: "من السعودية للعالم",
                 
                 // Footer
-                copyright: "&copy; 2024 تطبيق بيب بيب. جميع الحقوق محفوظة.",
+                copyright: "&copy; 2025 تطبيق بيب بيب. جميع الحقوق محفوظة.",
                 privacy: "سياسة الخصوصية",
                 terms: "شروط الخدمة",
                 contact: "اتصل بنا"
             },
             en: {
                 // Header
-                menu: "Menu",
                 downloadApp: "Download App Now",
                 language: "Language",
                 
@@ -697,14 +752,13 @@
                 expansionTagline: "From Saudi Arabia to the World",
                 
                 // Footer
-                copyright: "&copy; 2024 Pep Pep App. All rights reserved.",
+                copyright: "&copy; 2025 Pep Pep App. All rights reserved.",
                 privacy: "Privacy Policy",
                 terms: "Terms of Service",
                 contact: "Contact Us"
             },
             de: {
                 // Header
-                menu: "Menü",
                 downloadApp: "Jetzt App herunterladen",
                 language: "Sprache",
                 
@@ -732,14 +786,13 @@
                 expansionTagline: "Von Saudi-Arabien in die Welt",
                 
                 // Footer
-                copyright: "&copy; 2024 Pep Pep App. Alle Rechte vorbehalten.",
+                copyright: "&copy; 2025 Pep Pep App. Alle Rechte vorbehalten.",
                 privacy: "Datenschutzrichtlinie",
                 terms: "Nutzungsbedingungen",
                 contact: "Kontaktieren Sie uns"
             },
             es: {
                 // Header
-                menu: "Menú",
                 downloadApp: "Descargar App Ahora",
                 language: "Idioma",
                 
@@ -763,11 +816,11 @@
                 responsibilityDescription: "Trabajamos para proporcionar soluciones que ayuden a las personas a moverse fácilmente y contribuyan a construir ciudades más activas. A través de nuestras asociaciones con operadores locales, abrimos puertas a ingresos sostenibles y contribuimos al desarrollo de servicios de movilidad urbana.",
                 expansionTitle: "Viaje de Expansión",
                 expansionDescription1: "El viaje de Pep Pep comenzó desde Arabia Saudita, y hoy estamos expandiendo nuestra presencia con pasos seguros para llegar a nuevas ciudades y comunidades. Ofrecemos una experiencia de movilidad que combina disfrute, flexibilidad y facilidad de uso para servir diversas necesidades de movilidad urbana de manera práctica y cómoda.",
-                expansionDescription2: "Creemos que la movilidad moderna es una parte esencial de la calidad de vida, por lo que trabajamos continuamente para proporcionar soluciones que ayuden a las personas a moverse fácilmente y contribuyan a construir ciudades más activas, eficientes y sostenibles.",
+                expansionDescription2: "Creemos que la movilidad moderna es una parte esencial de la calidad de life, por lo que trabajamos continuamente para proporcionar soluciones que ayuden a las personas a moverse fácilmente y contribuyan a construir ciudades más activas, eficientes y sostenibles.",
                 expansionTagline: "De Arabia Saudita al Mundo",
                 
                 // Footer
-                copyright: "&copy; 2024 Aplicación Pep Pep. Todos los derechos reservados.",
+                copyright: "&copy; 2025 Aplicación Pep Pep. Todos los derechos reservados.",
                 privacy: "Política de Privacidad",
                 terms: "Términos de Servicio",
                 contact: "Contáctanos"

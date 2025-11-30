@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بيب بيب - تطبيق التنقل الذكي</title>
+    <title>الشروط والأحكام - بيب بيب</title>
     <!-- Load Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS Library for Scroll Animations -->
@@ -67,7 +67,7 @@
         
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: #fef2ab;
+            background-color: #fffceb;
             overflow-x: hidden;
         }
         
@@ -226,55 +226,158 @@
             z-index: -1;
             transform: skewX(-15deg);
         }
-        
-        /* Form styling */
-        .form-input {
-            transition: all 0.3s ease;
-            border: 2px solid #e5e7eb;
+
+        /* Terms & Conditions specific styling */
+        .terms-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
-        .form-input:focus {
-            border-color: #fdd703;
-            box-shadow: 0 0 0 3px rgba(253, 215, 3, 0.2);
-        }
-        
-        .option-card {
-            transition: all 0.3s ease;
-            border: 2px solid #e5e7eb;
-            cursor: pointer;
-        }
-        
-        .option-card:hover {
-            border-color: #fdd703;
-            transform: translateY(-5px);
-        }
-        
-        .option-card.selected {
-            border-color: #fdd703;
-            background-color: rgba(253, 215, 3, 0.1);
-        }
-        
-        .success-message {
-            display: none;
-            background: linear-gradient(135deg, #63a361, #4a7c47);
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
+
+        .terms-header {
+            background: linear-gradient(135deg, #fdd703 0%, #ae9000 100%);
+            padding: 40px 20px;
             text-align: center;
+            font-size: 42px;
+            font-weight: 900;
+            color: #000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
-        
-        .pulse-gold {
-            animation: pulse-gold 2s ease-in-out infinite alternate;
+
+        .terms-h2 {
+            color: #000;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 800;
+            padding-bottom: 10px;
         }
-        
-        @keyframes pulse-gold {
-            0% {
-                box-shadow: 0 0 20px rgba(253, 215, 3, 0.4);
-            }
-            100% {
-                box-shadow: 0 0 40px rgba(253, 215, 3, 0.8), 0 0 60px rgba(253, 215, 3, 0.4);
-            }
+
+        .terms-h2::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4px;
+            background: #fdd703;
+            border-radius: 2px;
+        }
+
+        .terms-h3 {
+            color: #333;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .terms-p {
+            font-size: 20px;
+            margin: 20px 0;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .terms-ul {
+            padding-right: 30px;
+            margin: 20px 0;
+        }
+
+        .terms-ul li {
+            margin-bottom: 18px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #444;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .terms-ul li::before {
+            content: "•";
+            color: #fdd703;
+            font-weight: bold;
+            font-size: 24px;
+            position: absolute;
+            right: 0;
+            top: -2px;
+        }
+
+        .terms-ol {
+            padding-right: 30px;
+            margin: 20px 0;
+            counter-reset: item;
+        }
+
+        .terms-ol li {
+            margin-bottom: 18px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #444;
+            position: relative;
+            padding-right: 35px;
+            counter-increment: item;
+        }
+
+        .terms-ol li::before {
+            content: counter(item) ".";
+            color: #fdd703;
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            background: #000;
+            color: #fdd703;
+            padding: 16px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-btn:hover {
+            background: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .important-note {
+            background: #fff9d9;
+            border-right: 5px solid #fdd703;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            background: #f0f8ff;
+            border: 1px solid #d1e7ff;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            font-size: 19px;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to left, #fdd703, transparent);
+            margin: 40px 0;
         }
     </style>
 </head>
@@ -284,14 +387,13 @@
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-lg">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             
-            
             <!-- Logo/Brand Link -->
-<a href="index.html" class="flex items-center" aria-label="بيب بيب الرئيسية">
-    <div class="relative">
-        <div class="absolute -inset-1 bg-primary-yellow rounded-full blur opacity-30"></div>
-        <img src="logo.png" alt="لوجو بيب بيب" class="h-16 w-16 object-contain relative">
-    </div>
-</a>
+            <a href="/" class="flex items-center" aria-label="بيب بيب الرئيسية">
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-primary-yellow rounded-full blur opacity-30"></div>
+                    <img src="logo.png" alt="لوجو بيب بيب" class="h-16 w-16 object-contain relative">
+                </div>
+            </a>
 
             <!-- Right side: Buttons and Language Selector -->
             <div class="hidden md:flex items-center space-x-4">
@@ -343,7 +445,7 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100 pb-4">
             <div class="flex flex-col space-y-2 px-4 pt-2">
-               
+                
                 
                 <!-- Simple language link/placeholder for mobile -->
                 <div class="px-3 py-2 text-sm font-medium text-gray-700 rounded-lg">
@@ -359,114 +461,137 @@
                     <button class="lang-option-mobile px-3 py-1 text-xs bg-gray-100 rounded-full" data-lang="es">Español</button>
                 </div>
 
-               
+                
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Contact Form Section -->
-        <section class="py-20 bg-white overflow-hidden" id="contact-form">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-2xl mx-auto">
-                    <!-- Section Title -->
-                    <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
-                        <h2 class="text-4xl md:text-5xl font-bold text-primary-black" data-translate="partnershipRequest">كن شريك مع بيب بيب</h2>
-                        <p class="text-lg text-gray-600 mt-4" data-translate="fillFormBelow">املأ النموذج أدناه وسنتواصل معك قريباً</p>
-                    </div>
+        <!-- Terms & Conditions Content -->
+        <div class="terms-header">الشروط والأحكام – بيب بيب</div>
 
-                    <!-- Form Container -->
-                    <div class="bg-gradient-to-br from-light-yellow to-primary-yellow/20 rounded-3xl p-8 md:p-12 shadow-2xl" data-aos="zoom-in" data-aos-duration="1000">
-                        <form id="partnershipForm" class="space-y-8">
-                            <!-- Name Field -->
-                            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                                <label for="name" class="block text-lg font-medium text-primary-black mb-2" data-translate="fullName">الاسم الكامل</label>
-                                <input type="text" id="name" name="name" required 
-                                       class="w-full px-4 py-3 text-lg rounded-xl form-input focus:outline-none focus:ring-2 focus:ring-primary-yellow"
-                                       placeholder="أدخل اسمك الكامل" data-translate-placeholder="enterFullName">
-                            </div>
-
-                            <!-- Phone Field -->
-                            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                                <label for="phone" class="block text-lg font-medium text-primary-black mb-2" data-translate="phoneNumber">رقم الجوال</label>
-                                <input type="tel" id="phone" name="phone" required 
-                                       class="w-full px-4 py-3 text-lg rounded-xl form-input focus:outline-none focus:ring-2 focus:ring-primary-yellow"
-                                       placeholder="05XXXXXXXX" data-translate-placeholder="enterPhoneNumber">
-                            </div>
-
-                            <!-- City Field -->
-                            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                                <label for="city" class="block text-lg font-medium text-primary-black mb-2" data-translate="city">المدينة</label>
-                                <input type="text" id="city" name="city" required 
-                                       class="w-full px-4 py-3 text-lg rounded-xl form-input focus:outline-none focus:ring-2 focus:ring-primary-yellow"
-                                       placeholder="المدينة التي ترغب بالعمل فيها" data-translate-placeholder="enterCity">
-                            </div>
-
-                            <!-- Vehicle Options -->
-                            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                                <label class="block text-lg font-medium text-primary-black mb-4" data-translate="selectVehicles">اختر عدد المركبات المطلوبة</label>
-                                
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                    <!-- Option 1 -->
-                                    <div class="option-card rounded-xl p-6 text-center bg-white" data-vehicles="5-15">
-                                        <div class="w-16 h-16 mx-auto mb-4 bg-primary-yellow rounded-full flex items-center justify-center">
-                                            <svg class="w-8 h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                            </svg>
-                                        </div>
-                                        <h3 class="text-xl font-bold text-primary-black mb-2" data-translate="vehicles5to15">5 - 15 مركبة</h3>
-                                        <p class="text-gray-600 text-sm" data-translate="starterPackage">باقة مبتدئة مثالية للبداية</p>
-                                    </div>
-
-                                    <!-- Option 2 -->
-                                    <div class="option-card rounded-xl p-6 text-center bg-white" data-vehicles="15-30">
-                                        <div class="w-16 h-16 mx-auto mb-4 bg-primary-yellow rounded-full flex items-center justify-center">
-                                            <svg class="w-8 h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                            </svg>
-                                        </div>
-                                        <h3 class="text-xl font-bold text-primary-black mb-2" data-translate="vehicles15to30">15 - 30 مركبة</h3>
-                                        <p class="text-gray-600 text-sm" data-translate="mediumPackage">باقة متوسطة لتنمية العمل</p>
-                                    </div>
-
-                                    <!-- Option 3 -->
-                                    <div class="option-card rounded-xl p-6 text-center bg-white" data-vehicles="30-45">
-                                        <div class="w-16 h-16 mx-auto mb-4 bg-primary-yellow rounded-full flex items-center justify-center">
-                                            <svg class="w-8 h-8 text-primary-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
-                                            </svg>
-                                        </div>
-                                        <h3 class="text-xl font-bold text-primary-black mb-2" data-translate="vehicles30to45">30 - 45 مركبة</h3>
-                                        <p class="text-gray-600 text-sm" data-translate="advancedPackage">باقة متقدمة لشركاء متميزين</p>
-                                    </div>
-                                </div>
-
-                                <!-- Hidden input to store selected value -->
-                                <input type="hidden" id="vehicles" name="vehicles" required>
-                            </div>
-
-                            <!-- Success Message -->
-                            <div id="successMessage" class="success-message" data-aos="fade-up" data-aos-duration="800">
-                                <p class="text-lg font-semibold" data-translate="requestSentSuccess">تم إرسال طلبك بنجاح! سنتواصل معك قريباً</p>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <div class="text-center pt-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                                <button type="submit" 
-                                        class="px-12 py-4 text-xl font-bold text-white bg-primary-black rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 active:scale-95 pulse-gold"
-                                        data-translate="submitRequest">
-                                    إرسال الطلب
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="terms-container">
+            <div class="important-note">
+                <strong>ملاحظة هامة:</strong> يرجى قراءة هذه الشروط والأحكام بعناية قبل استخدام تطبيق بيب بيب. باستخدامك للتطبيق، فإنك توافق على الالتزام بهذه الشروط والأحكام بالكامل.
             </div>
-        </section>
+
+            <h2 class="terms-h2">مقدمة</h2>
+            <p class="terms-p">
+                مرحباً بك في تطبيق <strong>بيب بيب</strong>. تطبيق بيب بيب هو منصة إلكترونية تتيح للمستخدمين استئجار السكوترات والدراجات الإلكترونية للتنقل داخل المدن. باستخدامك للتطبيق فإنك توافق على جميع الشروط والأحكام المذكورة في هذه الصفحة. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم استخدام التطبيق.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2 class="terms-h2">استخدام التطبيق</h2>
+            <p class="terms-p">يجب على جميع المستخدمين الالتزام بما يلي:</p>
+
+            <ul class="terms-ul">
+                <li>تقديم معلومات صحيحة ودقيقة أثناء عملية التسجيل والحفاظ على تحديث هذه المعلومات.</li>
+                <li>عدم إساءة استخدام التطبيق أو الخدمات المقدمة من خلاله لأي أغراض غير مشروعة.</li>
+                <li>الالتزام بالاحترام المتبادل بين جميع المستخدمين وعدم استخدام لغة غير لائقة.</li>
+                <li>عدم استخدام التطبيق لأي نشاط غير قانوني أو يتعارض مع القوانين واللوائح المحلية.</li>
+                <li>الحفاظ على سرية معلومات الحساب وعدم مشاركتها مع أي طرف ثالث.</li>
+                <li>الالتزام بقواعد السلامة المرورية وقوانين القيادة المحلية أثناء استخدام الخدمة.</li>
+            </ul>
+
+            <h3 class="terms-h3">القيود العمرية</h3>
+            <p class="terms-p">
+                يجب أن يكون عمر المستخدم 18 عاماً أو أكثر لاستخدام تطبيق بيب بيب. بالنسبة للمستخدمين الذين تتراوح أعمارهم بين 16 و18 عاماً، يُشترط موافقة الوالدين أو الوصي القانوني لاستخدام التطبيق.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2 class="terms-h2">الخصوصية وحماية البيانات</h2>
+            <p class="terms-p">
+                نحن نلتزم بحماية بياناتك الشخصية وعدم مشاركتها مع أي طرف ثالث دون إذن مسبق منك، إلا إذا كان ذلك مطلوباً بموجب القانون. تشمل البيانات التي نجمعها:
+            </p>
+
+            <ol class="terms-ol">
+                <li>المعلومات الشخصية (الاسم، البريد الإلكتروني، رقم الهاتف)</li>
+                <li>معلومات الدفع (يتم تخزينها بشكل آمن ومشفر)</li>
+                <li>بيانات الموقع الجغرافي أثناء استخدام الخدمة</li>
+                <li>بيانات استخدام التطبيق والإحصائيات</li>
+            </ol>
+
+            <p class="terms-p">
+                نحن نستخدم هذه البيانات لتحسين تجربتك في استخدام التطبيق وتقديم خدمة أفضل. يمكنك الاطلاع على سياسة الخصوصية الكاملة للتعرف على المزيد حول كيفية جمعنا واستخدامنا وحمايتنا لبياناتك.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2 class="terms-h2">حقوق الملكية</h2>
+            <p class="terms-p">
+                جميع العلامات التجارية، الشعارات، المحتوى، والتصاميم داخل تطبيق <strong>بيب بيب</strong> هي ملكية حصرية للشركة، ولا يُسمح باستخدامها دون تصريح رسمي. يشمل ذلك:
+            </p>
+
+            <ul class="terms-ul">
+                <li>شعار بيب بيب والهوية البصرية</li>
+                <li>التصميم والواجهة الخاصة بالتطبيق</li>
+                <li>الكود البرمجي وخوارزميات التطبيق</li>
+                <li>المحتوى النصي والمرئي داخل التطبيق</li>
+                <li>أي مواد إعلانية أو ترويجية تابعة للعلامة التجارية</li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <h2 class="terms-h2">الدفع والرسوم</h2>
+            <p class="terms-p">
+                يخضع استخدام خدمة بيب بيب لرسوم محددة بناءً على مدة الاستخدام والمسافة المقطوعة. نوفر عدة طرق دفع آمنة ومشفرة. عند استخدامك للخدمة، فإنك توافق على:
+            </p>
+
+            <ul class="terms-ul">
+                <li>دفع جميع الرسوم المستحقة في الوقت المحدد</li>
+                <li>توفير معلومات دفع صحيحة وسارية</li>
+                <li>تحمل أي رسوم إضافية ناتجة عن الإرجاع المتأخر أو الاستخدام غير السليم</li>
+                <li>الالتزام بسياسة الإلغاء والاسترداد المحددة</li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <h2 class="terms-h2">المسؤولية والضمان</h2>
+            <p class="terms-p">
+                بينما نسعى لتقديم خدمة عالية الجودة وآمنة، فإن استخدامك لخدمة بيب بيب يكون على مسؤوليتك الشخصية. نحن لا نتحمل المسؤولية عن:
+            </p>
+
+            <ul class="terms-ul">
+                <li>أي أضرار أو إصابات ناتجة عن الاستخدام غير السليم للخدمة</li>
+                <li>الخسائر الناتجة عن الظروف الجوية أو الطرقية</li>
+                <li>أي أضرار في الممتلكات الشخصية أثناء استخدام الخدمة</li>
+                <li>أي انتهاك للقوانين المحلية من قبل المستخدم</li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <h2 class="terms-h2">التعديلات على الشروط</h2>
+            <p class="terms-p">
+                يحق لـ بيب بيب تعديل أو تحديث هذه الشروط في أي وقت. سيتم الإعلان عن أي تغييرات داخل التطبيق أو على الموقع الرسمي. يستمر استخدامك للتطبيق بعد نشر التعديلات بمثابة موافقة منك على هذه التعديلات. ننصحك بمراجعة هذه الصفحة بشكل دوري للاطلاع على أي تحديثات.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2 class="terms-h2">إنهاء الخدمة</h2>
+            <p class="terms-p">
+                يحق لـ بيب بيب تعليق أو إنهاء حسابك أو الوصول إلى التطبيق في أي وقت ودون إشعار مسبق في حالة انتهاكك لهذه الشروط والأحكام. كما يحق لك إلغاء حسابك في أي وقت من خلال إعدادات الحساب.
+            </p>
+
+            <div class="contact-info">
+                <h3 class="terms-h3">اتصل بنا</h3>
+                <p class="terms-p">إذا كان لديك أي استفسارات حول هذه الشروط والأحكام، يرجى الاتصال بنا عبر:</p>
+                <ul class="terms-ul">
+                    <li>البريد الإلكتروني: support@peppep.com</li>
+                    <li>الهاتف: 800-123-4567</li>
+                    <li>ساعات العمل: من الأحد إلى الخميس، 9 صباحاً - 6 مساءً</li>
+                </ul>
+            </div>
+
+            <div class="text-center">
+                <a href="index.html" class="back-btn">الرجوع للرئيسية</a>
+            </div>
+        </div>
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-primary-black text-white py-10">
+    <footer class="bg-primary-black text-white py-10 mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <!-- Copyright -->
@@ -499,31 +624,11 @@
 
     <!-- JavaScript for Interactions and Translations -->
     <script>
-        // Complete translation data for all page content
+        // Translation data
         const translations = {
             ar: {
                 // Header
-                
                 language: "اللغة",
-                
-                // Form section
-                partnershipRequest: "كن شريك مع بيب بيب",
-                fillFormBelow: "املأ النموذج أدناه وسنتواصل معك قريباً",
-                fullName: "الاسم الكامل",
-                enterFullName: "أدخل اسمك الكامل",
-                phoneNumber: "رقم الجوال",
-                enterPhoneNumber: "05XXXXXXXX",
-                city: "المدينة",
-                enterCity: "المدينة التي ترغب بالعمل فيها",
-                selectVehicles: "اختر عدد المركبات المطلوبة",
-                vehicles5to15: "5 - 15 مركبة",
-                starterPackage: "باقة مبتدئة مثالية للبداية",
-                vehicles15to30: "15 - 30 مركبة",
-                mediumPackage: "باقة متوسطة لتنمية العمل",
-                vehicles30to45: "30 - 45 مركبة",
-                advancedPackage: "باقة متقدمة لشركاء متميزين",
-                submitRequest: "إرسال الطلب",
-                requestSentSuccess: "تم إرسال طلبك بنجاح! سنتواصل معك قريباً",
                 
                 // Footer
                 copyright: "&copy; 2025 تطبيق بيب بيب. جميع الحقوق محفوظة.",
@@ -533,28 +638,7 @@
             },
             en: {
                 // Header
-                menu: "Menu",
-                downloadApp: "Download App Now",
                 language: "Language",
-                
-                // Form section
-                partnershipRequest: "Partnership Request with Pep Pep",
-                fillFormBelow: "Fill out the form below and we'll contact you soon",
-                fullName: "Full Name",
-                enterFullName: "Enter your full name",
-                phoneNumber: "Phone Number",
-                enterPhoneNumber: "Enter your phone number",
-                city: "City",
-                enterCity: "City where you want to work",
-                selectVehicles: "Select the number of vehicles required",
-                vehicles5to15: "5 - 15 vehicles",
-                starterPackage: "Starter package perfect for beginners",
-                vehicles15to30: "15 - 30 vehicles",
-                mediumPackage: "Medium package for business growth",
-                vehicles30to45: "30 - 45 vehicles",
-                advancedPackage: "Advanced package for distinguished partners",
-                submitRequest: "Submit Request",
-                requestSentSuccess: "Your request has been sent successfully! We will contact you soon",
                 
                 // Footer
                 copyright: "&copy; 2025 Pep Pep App. All rights reserved.",
@@ -564,28 +648,7 @@
             },
             de: {
                 // Header
-                menu: "Menü",
-                downloadApp: "Jetzt App herunterladen",
                 language: "Sprache",
-                
-                // Form section
-                partnershipRequest: "Partnerschaftsanfrage mit Pep Pep",
-                fillFormBelow: "Füllen Sie das untenstehende Formular aus und wir werden uns bald bei Ihnen melden",
-                fullName: "Vollständiger Name",
-                enterFullName: "Geben Sie Ihren vollständigen Namen ein",
-                phoneNumber: "Telefonnummer",
-                enterPhoneNumber: "Geben Sie Ihre Telefonnummer ein",
-                city: "Stadt",
-                enterCity: "Stadt, in der Sie arbeiten möchten",
-                selectVehicles: "Wählen Sie die Anzahl der benötigten Fahrzeuge",
-                vehicles5to15: "5 - 15 Fahrzeuge",
-                starterPackage: "Starter-Paket perfekt für Anfänger",
-                vehicles15to30: "15 - 30 Fahrzeuge",
-                mediumPackage: "Mittleres Paket für Geschäftswachstum",
-                vehicles30to45: "30 - 45 Fahrzeuge",
-                advancedPackage: "Erweitertes Paket für herausragende Partner",
-                submitRequest: "Anfrage senden",
-                requestSentSuccess: "Ihre Anfrage wurde erfolgreich gesendet! Wir werden uns bald bei Ihnen melden",
                 
                 // Footer
                 copyright: "&copy; 2025 Pep Pep App. Alle Rechte vorbehalten.",
@@ -595,28 +658,7 @@
             },
             es: {
                 // Header
-                menu: "Menú",
-                downloadApp: "Descargar App Ahora",
                 language: "Idioma",
-                
-                // Form section
-                partnershipRequest: "Solicitud de Asociación con Pep Pep",
-                fillFormBelow: "Complete el formulario a continuación y nos pondremos en contacto con usted pronto",
-                fullName: "Nombre Completo",
-                enterFullName: "Ingrese su nombre completo",
-                phoneNumber: "Número de Teléfono",
-                enterPhoneNumber: "Ingrese su número de teléfono",
-                city: "Ciudad",
-                enterCity: "Ciudad donde desea trabajar",
-                selectVehicles: "Seleccione la cantidad de vehículos requeridos",
-                vehicles5to15: "5 - 15 vehículos",
-                starterPackage: "Paquete inicial perfecto para principiantes",
-                vehicles15to30: "15 - 30 vehículos",
-                mediumPackage: "Paquete medio para crecimiento empresarial",
-                vehicles30to45: "30 - 45 vehículos",
-                advancedPackage: "Paquete avanzado para socios distinguidos",
-                submitRequest: "Enviar Solicitud",
-                requestSentSuccess: "¡Su solicitud ha sido enviada con éxito! Nos pondremos en contacto con usted pronto",
                 
                 // Footer
                 copyright: "&copy; 2025 Aplicación Pep Pep. Todos los derechos reservados.",
@@ -655,21 +697,13 @@
                 }
             });
             
-            // Update placeholder texts
-            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-translate-placeholder');
-                if (translations[lang][key]) {
-                    element.placeholder = translations[lang][key];
-                }
-            });
-            
             // Update language selector
             const config = languageConfig[lang];
             document.getElementById('currentLangFlag').src = config.flag;
             document.getElementById('currentLangCode').textContent = lang.toUpperCase();
             document.getElementById('mobileCurrentLang').textContent = config.name;
             
-            // Update HTML direction and language
+            // Update HTML direction
             document.documentElement.dir = config.dir;
             document.documentElement.lang = lang;
             
@@ -719,65 +753,6 @@
                     changeLanguage(lang);
                 });
             });
-
-            // Vehicle selection functionality
-            const optionCards = document.querySelectorAll('.option-card');
-            const vehiclesInput = document.getElementById('vehicles');
-            
-            optionCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    // Remove selected class from all cards
-                    optionCards.forEach(c => c.classList.remove('selected'));
-                    
-                    // Add selected class to clicked card
-                    card.classList.add('selected');
-                    
-                    // Set the value in hidden input
-                    vehiclesInput.value = card.getAttribute('data-vehicles');
-                });
-            });
-
-            // Form submission handler
-            const partnershipForm = document.getElementById('partnershipForm');
-            const successMessage = document.getElementById('successMessage');
-            
-            if (partnershipForm) {
-                partnershipForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Validate vehicle selection
-                    if (!vehiclesInput.value) {
-                        alert(currentLang === 'ar' ? 'يرجى اختيار عدد المركبات المطلوبة' : 'Please select the number of vehicles required');
-                        return;
-                    }
-                    
-                    // Here you would typically send the form data to a server
-                    // For demo purposes, we'll just show the success message
-                    
-                    // Get form data
-                    const formData = new FormData(partnershipForm);
-                    const data = {
-                        name: formData.get('name'),
-                        phone: formData.get('phone'),
-                        city: formData.get('city'),
-                        vehicles: formData.get('vehicles')
-                    };
-                    
-                    console.log('Form data:', data); // For testing
-                    
-                    // Show success message
-                    successMessage.style.display = 'block';
-                    successMessage.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Reset form after 3 seconds
-                    setTimeout(() => {
-                        partnershipForm.reset();
-                        optionCards.forEach(card => card.classList.remove('selected'));
-                        vehiclesInput.value = '';
-                        successMessage.style.display = 'none';
-                    }, 5000);
-                });
-            }
 
             // Animate elements with GSAP
             gsap.utils.toArray('.hover-3d').forEach(element => {
