@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +69,15 @@
         :root {
             --font_7: normal normal normal 20px / 1.4em "Vazirmatn", sans-serif;
         }
-        
+        html[dir="rtl"] body {
+    text-align: right;
+}
+
+html[dir="ltr"] body {
+    
+    text-align: left;
+}
+
         body {
             font-family: "Vazirmatn", sans-serif;
             background-color: #fef2ab;
@@ -89,22 +97,6 @@
 
         .lang-dropdown.active .chevron-down {
             transform: rotate(180deg);
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 0;
-            width: 60px;
-            height: 3px;
-            background-color: #fdd703;
         }
         
         .hero-bg {
@@ -305,11 +297,11 @@
         }
     </style>
 </head>
-<body class="bg-light-yellow font-jannat" dir="rtl">
+<body class="bg-light-yellow font-jannat">
 
     <!-- Header Section -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-lg">
-        <div class="container mr-auto px-4 sm:px-6 lg:px-4 py-3 flex justify-between items-center w-[50%]">
+        <div class="container mr-auto px-4 sm:px-6 lg:px-4 py-3 flex justify-between items-center">
             
             <!-- Logo/Brand Link -->
             <a href="#" class="flex items-center" aria-label="بيب بيب الرئيسية">
@@ -335,7 +327,7 @@
                         </svg>
                     </button>
                     
-                    <div id="langMenu" class="hidden absolute right-0 mt-2 w-40 origin-top-right rounded-lg bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none luxury-card" role="menu" aria-orientation="vertical" aria-labelledby="langButton" tabindex="-1">
+                    <div id="langMenu" class="hidden absolute ltr:right-0 rtl:left-0 mt-2 w-28 origin-top-right rounded-lg bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none luxury-card" role="menu" aria-orientation="vertical" aria-labelledby="langButton" tabindex="-1">
                         <!-- Language options -->
                         <div class="py-1" role="none">
                             <a href="#" class="lang-option flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-all duration-200" data-lang="ar">
@@ -397,25 +389,25 @@
 
     <main>
         <!-- Hero Section -->
-        <section class=" h-screen text-white overflow-hidden" style="background-image:  url('images/freepik__img1-create-a-closeup-studio-scene-of-a-saudi-man-__36539.png'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
+        <section class=" h-screen text-white overflow-hidden" style="background-image:  url('/assets/img/bg-hero-section.png'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center justify-space-around  md:space-x-12">
                     
                     <!-- Text Content -->
-                    <div class="mb-12 md:mb-0 mt-[180px] text-center md:text-right" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="mb-12 md:mb-0 mt-[180px] text-center text-start" data-aos="fade-right" data-aos-duration="1000">
                         <h1 class="text-6xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-6 animate__animated animate__fadeInUp text-[#1D1D1B]">
                             <span class="inline-block mb-4" data-translate="heroTitle1">تنقّل ...</span><br/>
                             <span class="inline-block" data-translate="heroTitle2">بالشكل الأمثل</span>
                         </h1><br/>
                         <p class="text-xl md:text-2xl text-[#1D1D1B] mb-6 font-semibold animate__animated animate__fadeInUp animate__delay-1s max-w-lg md:mx-0" data-translate="heroSubtitle">
                        <span class="block"> بيب بيب أقرب لك.</span><br/>
-                       <span class="  block">     إذا احتجت وسيلة تنقّل،</span>
+                       <span class="block">     إذا احتجت وسيلة تنقّل،</span>
                         </p>
 
                         <!-- CTA Button (black pill) -->
                         <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
-                            <a href="invest-with-beeb-beeb.html" class="inline-block px-10 py-4 text-lg font-bold text-white bg-primary-black rounded-full shadow-lg hover:bg-black-800 transition-all duration-200 transform hover:scale-[1.23] active:scale-95 magnetic-btn" data-translate="herobtn">
-                                انضم كشريكك الان
+                            <a data-translate="heroJoinNow" href="invest-with-beeb-beeb.html" class="inline-block px-10 py-4 text-lg font-bold text-white bg-primary-black rounded-full shadow-lg hover:bg-black-800 transition-all duration-200 transform hover:scale-[1.23] active:scale-95 magnetic-btn" data-translate="herobtn">
+                                انضم كشريك الان
                             </a>
                         </div>
                      
@@ -449,15 +441,15 @@
                         <!-- circular logo on top -->
                         <div class="absolute -top-12 left-1/2  transform -translate-x-1/2">
                             <div class="bg-black rounded-full p-2  shadow-xl ">
-                                <img src="./images/beeb-beeb-logo.png" alt="لوجو بيب بيب" class="w-20 h-20 object-cover">
+                                <img src="/assets//img/beeb-beeb-logo.png" alt="لوجو بيب بيب" class="w-20 h-20 object-cover">
                             </div>
                         </div>
 
                         <!-- promo card -->
-                        <div class="bg-[#F3D008] rounded-3xl px-8 py-12 md:py-16  shadow-2xl">
-                            <h3 class="text-3xl md:text-4xl font-extrabold text-primary-black mb-4">ودّك بدخل يومي متكرر على مدار السنة؟</h3>
-                            <p class="text-lg md:text-xl text-dark-green mb-6">مع بيب بيب، هذا الدخل يصير واقع</p>
-                            <a href="invest-with-beeb-beeb.html" class="inline-block px-5 py-3 bg-primary-black text-white font-bold leading-6 text-xl rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300">انضم كشريكك الان</a>
+                        <div class="bg-[#F3D008] rounded-3xl px-8 py-12 md:py-16 shadow-2xl">
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-primary-black mb-4" data-translate="promoCardTitle">ودّك بدخل يومي متكرر على مدار السنة؟</h3>
+                            <p class="text-lg md:text-xl text-dark-green mb-6" data-translate="promoCardDesc">مع بيب بيب، هذا الدخل يصير واقع</p>
+                            <a href="/invest-with-beeb-beeb.html" class="inline-block px-5 py-3 bg-primary-black text-white font-bold leading-6 text-xl rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300" data-translate="promoCardLink">انضم كشريكك الان</a>
                         </div>
 
                     </div>
@@ -469,16 +461,16 @@
 
         
         <!-- New Dark Showcase Section (scooter + description) -->
-        <section class="py-20  text-white overflow-hidden" style="background-image: url('./images/bike-image.png'); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: overlay;">
+        <section class="py-20 text-white overflow-hidden" style="background-image: url('/assets//img/bike-image.png'); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: overlay;">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row-reverse items-center gap-16 ">
+                <div class="flex flex-col md:flex-row items-center gap-16">
                     <!-- Text Column -->
-                    <div class="md:w-1/2 text-right md:text-right lg:pt-10 lg:pb-16 lg:px-4 lg:px-0 lg:pl-56" data-aos="fade-up" data-aos-duration="1000">
-                        <h2 class="text-5xl md:text-6xl font-extrabold mb-6">بيب بيب</h2>
-                        <p class="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">
+                    <div class="md:w-1/2 lg:pt-10 lg:pb-16 lg:px-4 lg:px-0 lg:pl-56" data-aos="fade-up" data-aos-duration="1000">
+                        <h2 class="text-5xl md:text-6xl font-extrabold mb-6" data-translate="aboutTitle">بيب بيب</h2>
+                        <p class="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed" data-translate="aboutDesc1">
                             بيب بيب اليوم تقدّم منظومة متكاملة من الحلول التقنية اللي تجمع بين الأمان العالي، والكفاءة في التشغيل، والاهتمام بالاستدامة.
                         </p>
-                        <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+                        <p class="text-lg md:text-xl text-gray-300 leading-relaxed" data-translate="aboutDesc2">
                             نطوّر تقنياتنا باستمرار عشان تكون التجربة أسهل، أوضح، وأقرب لاحتياج المستخدم اليومي، مع عناية دقيقة بتفاصيل النظام. هدفنا إن يكون التنقّل داخل المدينة أكثر سلاسة وبحلول تقنية مدروسة تخدم المستخدم والبيئة في نفس الوقت.
                         </p>
                     </div>
@@ -491,14 +483,9 @@
         <!-- Where We Are Section -->
         <section class="py-20 bg-white overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col  md:flex-row-reverse items-start md:items-start gap-12 max-w-6xl mx-auto">
-                    <!-- Map Image (left on desktop) -->
-                    <div class="md:w-1/2 w-full md:order-1 order-2 flex justify-center md:justify-start" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="./images/map-section.png" alt="خريطة تواجد بيب بيب" class="w-full max-w-lg md:max-w-none h-auto md:max-h-[420px] object-cover">
-                    </div>
-
-                    <!-- Text (right) -->
-                    <div class="md:w-1/2 text-right order-2" data-aos="fade-up" data-aos-duration="800">
+                <div class="flex flex-col md:flex-row items-start md:items-start gap-12 max-w-6xl mx-auto">
+                      <!-- Text (right) -->
+                    <div class="md:w-1/2 text-start" data-aos="fade-up" data-aos-duration="800">
                         <h2 class="section-title text-4xl font-bold text-primary-black mb-8" data-translate="whereWeAreTitle">رحلة التوسع</h2>
                         <p class="text-xl text-gray-700 mb-6 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-translate="whereWeAreDesc1">
                             بدأت رحلة بيب بيب من المملكة العربية السعودية، واليوم نوسّع حضورنا بخطوات واثقة عشان نوصل لمدن ومجتمعات جديدة. نقدّم تجربة تنقّل تجمع بين المتعة، المرونة، وسهولة الاستخدام، لنخدم مختلف احتياجات التنقّل داخل المدينة بأسلوب عملي ومريح.
@@ -507,6 +494,11 @@
                             نؤمن إن التنقّل الحديث جزء أساسي من جودة الحياة، عشان كذا نعمل باستمرار على تقديم حلول تساعد الناس يتحرّكون بسهولة، وتساهم في بناء مدن أكثر نشاطًا، وكفاءة، واستدامة.
                         </p>
                     </div>
+                    <!-- Map Image (left on desktop) -->
+                    <div class="md:w-1/2 w-full flex justify-center md:justify-start" data-aos="zoom-in" data-aos-duration="1000">
+                        <img src="/assets/img/map-section.png" alt="خريطة تواجد بيب بيب" class="w-full max-w-lg md:max-w-none h-auto md:max-h-[420px] object-cover">
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -559,12 +551,12 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
                     <!-- Text Column (left) -->
-                    <div class="md:w-1/2 text-right" data-aos="fade-up" data-aos-duration="1000">
-                        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">شغّل منظومة تنقّل حديثة في مدينتك بالشراكة مع بيب بيب</h2>
-                        <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+                    <div class="md:w-1/2 text-start" data-aos="fade-up" data-aos-duration="1000">
+                        <h2 class="text-4xl md:text-5xl font-extrabold mb-6" data-translate="impactTitle">شغّل منظومة تنقّل حديثة في مدينتك بالشراكة مع بيب بيب</h2>
+                        <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed" data-translate="impactDesc1">
                             نوفّر لك نموذج تشغيل متكامل يتيح لك الإسهام في تطوير خدمات التنقّل الحضري، ودعم بيئة أنظف، وحركة يومية أسهل للسكان، ضمن إطار تشغيلي واضح وفرص توسّع مدروسة.
                         </p>
-                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed" data-translate="impactDesc2">
                             مع بيب بيب، تصبح الشريك المشغّل لخدمات السكوترات والدراجات في مدينتك، وتشارك في تقديم خدمة يحتاجها الناس يوميًا، وتفتح لنفسك باب دخل مستدام.
                         </p>
                     </div>
@@ -572,7 +564,7 @@
                     <!-- Image Column (right) -->
                     <div class="md:w-1/2 flex justify-center md:justify-end" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                         <div class="w-full max-w-md">
-                            <img src="./photos/man-with.jpg" alt="سكوتر في المدينة" class="w-full h-[420px] md:h-[520px] object-cover rounded-3xl shadow-2xl">
+                            <img src="/assets/img/scooter-man.png" alt="سكوتر في المدينة" class="w-full h-[420px] md:h-[520px] object-cover rounded-3xl shadow-2xl">
                         </div>
                     </div>
                 </div>
@@ -581,26 +573,26 @@
 
         <!-- Process Section -->
     <section class="relative bg-[#FFF4B8] py-20 overflow-visible relative">
-  <div class="container-f mx-auto px-6 ">
+  <div class="container-f mx-auto px-6">
 
     <!-- صورة الموبايل (Absolute) -->
     <div class="hidden lg:block absolute left-10 top-[-40px] -translate-y-1/2 " data-aos="zoom-in" data-aos-duration="1000">
       <img
-        src="./photos/navigation.png"
+        src="/assets/img/mobile.png"
         alt="App Preview"
         class="w-[320px] xl:w-[380px]"
       />
     </div>
 
     <!-- المحتوى -->
-    <div class="lg:pl-[420px] text-center lg:text-right">
+    <div class="lg:pl-[420px] text-center lg:text-start">
 
             <!-- العنوان -->
-            <h2 class="text-6xl font-bold mr-[112px]  text-primary-black mb-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <h2 class="text-2xl lg:text-6xl font-bold text-primary-black mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-translate="processTitle">
         ابدأ الركوب في 3 خطوات بسيطة
       </h2>
 
-            <p class="text-gray-700 max-w-3xl lg:mr-[116px] mx-auto my-1 lg:mx-0 mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <p class="text-gray-700 max-w-3xl mx-auto my-1 lg:mx-0 mb-16" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-translate="processDesc">
         تم تصميم تجربة بيب بيب للكفاءة القصوى والمتعة.
       </p>
 
@@ -829,6 +821,7 @@
                 // Hero Section
                 heroTitle1: "تنقل ...",
                 heroTitle2: "بالشكل الأمثل",
+                heroJoinNow:"انضم كشريك الان",
                 heroSubtitle: "إذا احتجت وسيلة تنقّل ، بيب بيب أقرب لك.",
                 heroDesc1: "من خلال بيب بيب، تستمتع بخدمة استئجار سكوترات ودراجات داخل المدينة بشكل يواكب نمط حياتك السريع.",
                 heroDesc2: "تنقّل سلس، وقت أقل يُهدر في الطريق، مريح لميزانيتك، ليكون خيارك الموثوق للمشاوير القصيرة.",
@@ -840,6 +833,9 @@
                 unlockScooter: "استأجر مركبتك",
                 
                 // About Section
+                promoCardTitle:"ودّك بدخل يومي متكرر على مدار السنة؟",
+                promoCardDesc:"مع بيب بيب، هذا الدخل يصير واقع", 
+                promoCardLink:"انضم كشريكك الان",
                 aboutTitle: "بيب بيب",
                 aboutDesc1: "بيب بيب اليوم تقدّم منظومة متكاملة من الحلول التقنية اللي تجمع بين الأمان العالي، والكفاءة في التشغيل، والاهتمام بالاستدامة.",
                 aboutDesc2: "نطوّر تقنياتنا باستمرار عشان تكون التجربة أسهل، أوضح، وأقرب لاحتياج المستخدم اليومي، مع عناية دقيقة تفاصيل النظام. هدفنا إن يكون التنقّل داخل المدينة أكثر سلاسة وبحلول تقنية مدروسة تخدم المستخدم والبيئة في نفس الوقت.",
@@ -919,6 +915,7 @@ joinPartner: "انضم كشريك الان",
                 // Hero Section
                 heroTitle1: "Mobility ...",
                 heroTitle2: "Optimized",
+                "heroJoinNow": "Join as a partner now",
                 heroSubtitle: "If you need transportation, Pep Pep is closer to you.",
                 heroDesc1: "With Pep Pep, you enjoy scooter and bike rental services within the city in a way that keeps up with your fast-paced lifestyle.",
                 heroDesc2: "Smooth mobility, less time wasted on the road, budget-friendly, to be your reliable choice for short trips.",
@@ -930,10 +927,13 @@ joinPartner: "انضم كشريك الان",
                 unlockScooter: "Rent Your Vehicle",
                 
                 // About Section
-                aboutTitle: "Pep Pep",
+                promoCardTitle: "Looking for a recurring daily income all year round?",
+                promoCardDesc: "With Pep Pep, this income becomes a reality",
+                promoCardLink: "Join as a partner now",
+                aboutTitle: "Beep Beep",
                 aboutDesc1: "Today, Pep Pep offers a complete system of technical solutions that combine high safety, operational efficiency, and attention to sustainability.",
                 aboutDesc2: "We continuously develop our technologies to make the experience easier, clearer, and closer to the user's daily needs, with careful attention to system details. Our goal is to make urban mobility smoother with well-studied technical solutions that serve both the user and the environment.",
-                ourVehicles: "Pep Pep Vehicles",
+                ourVehicles: "Beep Beep Vehicles",
                 
                 // Where We Are Section
                 whereWeAreTitle: "Expansion Journey",
@@ -942,9 +942,9 @@ joinPartner: "انضم كشريك الان",
                 globalMap: "Pep Pep Global Presence Map",
                 
                 // Impact Section
-                impactTitle: "Operate a Modern Mobility System in Your City in Partnership with Pep Pep",
+                impactTitle: "Operate a Modern Mobility System in Your City in Partnership with Beep Beep",
                 impactDesc1: "We provide you with a comprehensive operational model that enables you to contribute to developing urban mobility services, supporting a cleaner environment, and easier daily movement for residents, within a clear operational framework and well-studied expansion opportunities.",
-                impactDesc2: "With Pep Pep, you become the operating partner for scooter and bike services in your city, participate in providing a service that people need daily, and open a sustainable income stream for yourself.",
+                impactDesc2: "With Beep Beep, you become the operating partner for scooter and bike services in your city, participate in providing a service that people need daily, and open a sustainable income stream for yourself.",
                 applyNow: "Register Your Interest Now",
                 
                 // Who We Are Section
@@ -1197,45 +1197,48 @@ joinPartner: "Únete como socio ahora",
         let currentLang = 'ar';
 
         // Function to change language
-        function changeLanguage(lang) {
-            if (!translations[lang]) return;
-            
-            currentLang = lang;
-            
-            // Update all elements with data-translate attribute
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.value = translations[lang][key];
-                    } else {
-                        element.innerHTML = translations[lang][key];
-                    }
-                }
-            });
-            
-            // Update language selector
-            const config = languageConfig[lang];
-            document.getElementById('currentLangFlag').src = config.flag;
-            document.getElementById('currentLangCode').textContent = lang.toUpperCase();
-            document.getElementById('mobileCurrentLang').textContent = config.name;
-            
-            // Update HTML direction
-            document.documentElement.dir = config.dir;
-            document.documentElement.lang = lang;
-            
-            // Close language dropdown
-            const langMenu = document.getElementById('langMenu');
-            const langButton = document.getElementById('langButton');
-            if (langMenu && langButton) {
-                langMenu.classList.add('hidden');
-                langButton.setAttribute('aria-expanded', 'false');
-                langButton.classList.remove('active');
+ function changeLanguage(lang) {
+    if (!translations[lang]) return;
+
+    currentLang = lang;
+
+    // 🔤 ترجمة كل النصوص
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.value = translations[lang][key];
+            } else {
+                element.innerHTML = translations[lang][key];
             }
-            
-            // Save preference to localStorage
-            localStorage.setItem('preferredLanguage', lang);
         }
+    });
+
+    // 🔄 تغيير الاتجاه
+    if (lang === 'ar') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+    } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+    }
+
+    // 🌍 تحديث اللغة الحالية
+    const config = languageConfig[lang];
+    document.getElementById('currentLangFlag').src = config.flag;
+    document.getElementById('currentLangCode').textContent = lang.toUpperCase();
+
+    // 💾 حفظ الاختيار
+    localStorage.setItem('preferredLanguage', lang);
+
+    // ✅ قفل الـ dropdown
+    const langMenu = document.getElementById('langMenu');
+    const langButton = document.getElementById('langButton');
+
+    langMenu?.classList.add('hidden');
+    langButton?.setAttribute('aria-expanded', 'false');
+    langButton?.classList.remove('active');
+}
 
         // Initialize AOS (Animate On Scroll)
         AOS.init({
