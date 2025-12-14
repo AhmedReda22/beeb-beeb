@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <!-- Configure Tailwind for custom colors/theme -->
     <script>
         tailwind.config = {
@@ -250,51 +253,22 @@ html[dir="ltr"] body {
         box-shadow: 0 0 40px rgba(253, 215, 3, 0.8), 0 0 60px rgba(253, 215, 3, 0.4);
     }
 }
-        /* Product slider styles */
-        .product-slider .slides {
-            position: relative;
-            height: 90%;
-        }
+ /* Product slider styles */
+       .product-swiper {
+  padding: 30px 0;
+}
 
-        .product-slider .slide {
-            position: absolute;
-            top: 0;
-            left: 32.5%;
-            width: 60%;
-            transform: translateX(-50%) scale(0.9);
-            transition: transform 600ms cubic-bezier(.22,.98,.42,1), opacity 300ms ease;
-            opacity: 0; z-index: 10;
-            pointer-events: none;
-        }
+.product-swiper .swiper-slide {
+  width: 260px;
+  display: flex;
+  justify-content: center;
+}
 
-        .product-slider .slide img { border-radius: 18px; }
-
-        .product-slider .slide.active {
-            transform: translateX(-50%) scale(1);
-            opacity: 1; z-index: 50; pointer-events: auto;
-        }
-
-        .product-slider .slide.prev {
-            transform: translateX(-80%) scale(0.96);
-            opacity: 1; z-index: 30; pointer-events: auto;
-        }
-
-        .product-slider .slide.next {
-            transform: translateX(-20%) scale(0.96);
-            opacity: 1; z-index: 30; pointer-events: auto;
-        }
-
-        /* Hide extra slides to left/right beyond prev/next */
-        .product-slider .slide.hidden {
-            opacity: 0; transform: translateX(-50%) scale(0.8); z-index: 5; pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .product-slider .slide { position: relative; width: 100%; left: 0; transform: translateX(0) scale(1); opacity: 1; }
-            .product-slider .slide.prev, .product-slider .slide.next { transform: translateX(0) scale(0.95); }
-            .product-slider .slides { height: auto; }
-            .product-slider .slide img { border-radius: 12px; }
-        }
+.product-swiper img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+}
     </style>
 </head>
 <body class="bg-light-yellow font-jannat">
@@ -304,8 +278,8 @@ html[dir="ltr"] body {
         <div class="container mr-auto px-4 sm:px-6 lg:px-4 py-3 flex justify-between items-center">
             
             <!-- Logo/Brand Link -->
-            <a href="#" class="flex items-center" aria-label="بيب بيب الرئيسية">
-                <div class="relative">
+            <a href="#" class="flex-1 flex justify-center items-center" aria-label="بيب بيب الرئيسية">
+                <div class="relative flex justify-center">
                     <div class="absolute -inset-1 bg-primary-yellow rounded-full blur opacity-30"></div>
                     <img src="logo.png" alt="لوجو بيب بيب" class="h-16 w-16 object-contain relative">
                 </div>
@@ -463,9 +437,9 @@ html[dir="ltr"] body {
         <!-- New Dark Showcase Section (scooter + description) -->
         <section class="py-20 text-white overflow-hidden" style="background-image: url('/assets/img/bike-image.png'); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: overlay;">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="flex flex-col ltr:md:flex-row rtl:md:flex-row-reverse items-center gap-16">
                     <!-- Text Column -->
-                    <div class="md:w-1/2 lg:pt-10 lg:pb-16 lg:px-4 lg:px-0 lg:pl-56" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="md:w-1/2 lg:pt-10 lg:pb-16 lg:px-4 lg:px-0 lg:ps-56" data-aos="fade-up" data-aos-duration="1000">
                         <h2 class="text-5xl md:text-6xl font-extrabold mb-6" data-translate="aboutTitle">بيب بيب</h2>
                         <p class="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed" data-translate="aboutDesc1">
                             بيب بيب اليوم تقدّم منظومة متكاملة من الحلول التقنية اللي تجمع بين الأمان العالي، والكفاءة في التشغيل، والاهتمام بالاستدامة.
@@ -502,7 +476,7 @@ html[dir="ltr"] body {
                 </div>
             </div>
         </section>
-   <!-- What Is Pep Pep Section -->
+   <!-- What Is Beep beep Section -->
         <section class="py-20 bg-[#F3D008] bg overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center">
@@ -642,16 +616,42 @@ html[dir="ltr"] body {
     </div>
   </div>
 </section>
+       <!-- Product Details Section -->
     <section class="py-20 bg-white overflow-hidden" id="product-details">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-5xl mx-auto text-center" data-aos="fade-up" data-aos-duration="800">
-                    <h2 class="text-4xl font-bold mb-2">تفاصيل المنتج</h2>
-                    <p class="text-lg text-gray-600 mb-8">بيب بيب هو تطبيق تنقّل ذكي يتيح لك استئجار السكوترات والدرّاجات الكهربائية بسهولة.</p>
+                    <h2 class="text-4xl font-bold mb-2" data-translate="productSliderTitle">تفاصيل المنتج</h2>
+                    <p class="text-lg text-gray-600 mb-8" data-translate="productSliderDesc">بيب بيب هو تطبيق تنقّل ذكي يتيح لك استئجار السكوترات والدرّاجات الكهربائية بسهولة.</p>
                 </div>
+                  
+                <div class="swiper product-swiper max-w-5xl mx-auto mt-6">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide">
+      <img src="/assets/img/scooter-down.png" alt="">
+    </div>
+
+    <div class="swiper-slide">
+      <img src="/assets/img/scooter-head.png" alt="">
+    </div>
+
+    <div class="swiper-slide">
+      <img src="/assets/img/scooter-bottom.png" alt="">
+    </div>
+
+  </div>
+
+  <!-- arrows -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- dots -->
+  <div class="swiper-pagination"></div>
+</div>
 
                 <!-- Slider -->
-                <div class="product-slider max-w-5xl h-[300px] mx-auto mt-6 relative">
-                    <button type="button" aria-label="previous slide" class="slider-nav prev absolute right-[10rem] top-1/2 -translate-y-1/2 z-30 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:scale-105 transition-transform cursor-pointer">
+                <!-- <div class="product-slider max-w-5xl h-[300px] mx-auto mt-6 relative">
+                    <button type="button" aria-label="previous slide" class="slider-nav prev absolute right-[10rem] top-1/2 -translate-y-1/2 z-50 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:scale-105 transition-transform cursor-pointer">
                         <span class="text-xl">‹</span>
                     </button>
 
@@ -671,15 +671,15 @@ html[dir="ltr"] body {
                         <span class="text-xl">›</span>
                     </button>
 
-                    <!-- indicators -->
                     <div class="mt-6 flex justify-center gap-3">
                         <button class="dot w-3 h-3 rounded-full bg-gray-300" data-index="0" aria-label="slide 1"></button>
                         <button class="dot w-3 h-3 rounded-full bg-gray-300" data-index="1" aria-label="slide 2"></button>
                         <button class="dot w-3 h-3 rounded-full bg-gray-300" data-index="2" aria-label="slide 3"></button>
                     </div>
-                </div>
+                </div> -->
             </div>
-        </section>
+        </section> 
+        <!-- promo card -->
     <section class="py-20 bg-[#F3D008] overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-center">
@@ -693,9 +693,9 @@ html[dir="ltr"] body {
 
                         <!-- promo card -->
                         <div class="bg-white rounded-3xl px-8 py-12 md:py-16  shadow-2xl">
-                            <h3 class="text-3xl md:text-4xl font-extrabold text-primary-black mb-4">ودّك بدخل يومي متكرر على مدار السنة؟</h3>
-                            <p class="text-lg md:text-xl text-dark-green mb-6">مع بيب بيب، هذا الدخل يصير واقع</p>
-                            <a href="invest-with-beeb-beeb.html" class="inline-block px-5 py-3 bg-primary-black text-white font-bold leading-6 text-xl rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300">انضم كشريكك الان</a>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-primary-black mb-4" data-translate="promoCardTitle">ودّك بدخل يومي متكرر على مدار السنة؟</h3>
+                            <p class="text-lg md:text-xl text-dark-green mb-6" data-translate="promoCardDesc">مع بيب بيب، هذا الدخل يصير واقع</p>
+                            <a data-translate="promoCardLink" href="invest-with-beeb-beeb.html" class="inline-block px-5 py-3 bg-primary-black text-white font-bold leading-6 text-xl rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300">انضم كشريكك الان</a>
                         </div>
 
                     </div>
@@ -703,57 +703,8 @@ html[dir="ltr"] body {
 
                 </div>
             </div>
-        </section>
-
-<!--      
-      
-        <section class="py-20 bg-primary-yellow text-primary-black overflow-hidden">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-bold mb-4" data-aos="fade-up" data-aos-duration="800" data-translate="whyChooseTitle">لماذا تختار بيب بيب؟</h2>
-                <p class="text-lg text-primary-black mb-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-translate="whyChooseDesc">
-                    نجمع بين التكنولوجيا والراحة لإعادة تعريف التنقل الحضري.
-                </p>
-
-              
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    
-               
-                    <div class="p-6 bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01] hover-3d" data-aos="fade-up" data-aos-duration="800">
-                        <div class="text-primary-yellow mb-4 mx-auto">
-                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" data-translate="instantTitle">فوري وسهل</h3>
-                        <p class="text-gray-700" data-translate="instantDesc">امسح رمز الاستجابة السريعة وابدأ رحلتك في ثوانٍ. لا مفاتيح، لا متاعب، فقط سفر ذكي.</p>
-                    </div>
-
-                  
-                    <div class="p-6 bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01] hover-3d" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                        <div class="text-primary-yellow mb-4 mx-auto">
-                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m-3 0h6"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" data-translate="affordableTitle">تنقل اقتصادي</h3>
-                        <p class="text-gray-700" data-translate="affordableDesc2">استمتع بأسعار تنافسية وادفع فقط مقابل الدقائق التي تركبها. مثالي للرحلات القصيرة.</p>
-                    </div>
-
-                    
-                    <div class="p-6 bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.01] hover-3d" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                        <div class="text-primary-yellow mb-4 mx-auto">
-                            <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" data-translate="greenTitle">تنقل أخضر</h3>
-                        <p class="text-gray-700" data-translate="greenDesc">قلل من بصمتك الكربونية. تقدم سكوتراتنا الكهربائية بديلاً مستدامًا للسيارات.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
- -->
-
-        
+        </section>       
     </main>
-
-
-
 
     <!-- Footer Section -->
     <footer class="bg-primary-black text-white py-10">
@@ -763,7 +714,7 @@ html[dir="ltr"] body {
                 <p class="text-sm text-gray-400" data-translate="copyright">&copy; 2025 تطبيق بيب بيب. جميع الحقوق محفوظة.</p>
                 
                 <!-- Footer Links -->
-                <div class="flex space-x-6 text-sm">
+                <div class="flex  gap-6 text-sm">
                     <a href="privacy.html" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="privacy">سياسة الخصوصية</a>
                     <a href="terms.html" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="terms">شروط الخدمة</a>
                     <a href="contact.html" class="text-gray-400 hover:text-primary-yellow transition-all duration-150" data-translate="contact">اتصل بنا</a>
@@ -771,7 +722,7 @@ html[dir="ltr"] body {
 
                
                 <!-- Social Icons -->
-<div class="flex space-x-4">
+<div class="flex gap-4 items-center" dir="ltr">
     <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-primary-yellow transition-all duration-150">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14 13.5H16.5L17 9.5H14V7.5C14 6.45 14 5.5 16 5.5H17V2.5C16.327 2.454 15.632 2.492 14.945 2.5C13.568 2.5 12.398 3.076 11.531 4.225C11.196 4.757 11 5.424 11 6.25V9.5H8V13.5H11V22H14V13.5Z"/></svg>
     </a>
@@ -792,7 +743,7 @@ html[dir="ltr"] body {
             <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
         </svg>
     </a>
-    <a href="https://snapchat.com/t/mr3outsc" aria-label="Snapchat" class="text-gray-400 hover:text-primary-yellow transition-all duration-150">
+    <a href="https://snapchat.com/t/mr3outsc" aria-label="Snapchat" class="text-gray-400 hover:text-primary-yellow transition-all duration-150 mt-1.5">
     <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2c2.39 0 4.32 1.94 4.32 4.32v1.02c.01.35.21.66.53.79 1.01.44 2.1 1.02 2.1 2.14 0 .58-.32 1.09-.89 1.43-.28.17-.45.47-.45.78 0 .47.32.89.76 1.02.47.14.96.29 1.36.51.33.17.55.5.55.86a.97.97 0 01-.97.97c-.18 0-.36-.05-.54-.13a4.47 4.47 0 00-1.89-.45c-.41 0-.81.07-1.2.22-.46.16-.95.25-1.45.25-.73 0-1.42-.18-2.04-.49a1.86 1.86 0 00-1.7 0 4.7 4.7 0 01-2.04.49c-.5 0-.99-.09-1.45-.25-.38-.15-.79-.22-1.2-.22-.7 0-1.36.18-1.89.45-.18.08-.36.13-.54.13a.97.97 0 01-.97-.97c0-.36.22-.69.55-.86.4-.22.89-.37 1.36-.51.44-.13.76-.55.76-1.02 0-.31-.17-.6-.45-.78-.57-.34-.89-.85-.89-1.43 0-1.12 1.1-1.7 2.1-2.14.32-.13.52-.44.53-.79V6.32C7.68 3.94 9.61 2 12 2z"/>
     </svg>
@@ -883,15 +834,18 @@ html[dir="ltr"] body {
                 greenDesc: "قلل من بصمتك الكربونية. تقدم سكوتراتنا الكهربائية بديلاً مستدامًا للسيارات.",
                 
                 // Process Section
-                processTitle: "ابدأ الركوب في 3 خطوات بسيطة",
-                processDesc: "تم تصميم تجربة بيب بيب للكفاءة القصوى والمتعة.",
-                step1Title: "ابحث وامسح",
-                step1Desc: "حدد موقع أقرب سكوتر على خريطة التطبيق وامسح رمز الاستجابة السريعة لفتحه.",
-                step2Title: "اركب واستمتع",
-                step2Desc: "تجول في المدينة مستمتعًا بالهواء النقي. تأكد من اتباع جميع قوانين المرور المحلية.",
-                step3Title: "أوقف وأغلق",
-                step3Desc: "أوقف السكوتر بمسؤولية في منطقة مخصصة وانقر على 'إنهاء الرحلة' في التطبيق لقفل السكوتر.",
-                
+              processTitle: "ابدأ الركوب في 3 خطوات بسيطة",
+              processDesc: "تم تصميم تجربة بيب بيب لتحقيق أقصى كفاءة ومتعة.",
+              processStep1Title: "ابحث وامسح",
+              processStep1Desc: "حدد موقع أقرب سكوتر على خريطة التطبيق وامسح رمز الاستجابة السريعة لفتحه.",
+              processStep2Titl: "اركب واستمتع",
+              processStep2Desc: "تجول في المدينة مستمتعًا بالهواء النقي، وتأكد من اتباع جميع قوانين المرور.",
+              processStep3Title: "أوقف وأغلق",
+              processStep3Desc: "أوقف السكوتر بمسؤولية وانقر على \"إنهاء الرحلة\" في التطبيق لقفله.",
+
+            //   product slider
+            productSliderTitle: "تفاصيل المنتج",
+            productSliderDesc: "بيب بيب هو تطبيق تنقّل ذكي يتيح لك استئجار السكوترات والدراجات الكهربائية بسهولة.",
                 // Final CTA
                 readyTitle: "مستعد لبدء رحلتك؟",
                 readyDesc: "حمّل تطبيق بيب بيب اليوم وطوّر طريقة تنقلك في مدينتك.",
@@ -916,8 +870,8 @@ joinPartner: "انضم كشريك الان",
                 heroTitle1: "Mobility ...",
                 heroTitle2: "Optimized",
                 "heroJoinNow": "Join as a partner now",
-                heroSubtitle: "If you need transportation, Pep Pep is closer to you.",
-                heroDesc1: "With Pep Pep, you enjoy scooter and bike rental services within the city in a way that keeps up with your fast-paced lifestyle.",
+                heroSubtitle: "If you need transportation, Beep beep is closer to you.",
+                heroDesc1: "With Beep beep, you enjoy scooter and bike rental services within the city in a way that keeps up with your fast-paced lifestyle.",
                 heroDesc2: "Smooth mobility, less time wasted on the road, budget-friendly, to be your reliable choice for short trips.",
                 downloadFrom: "Download on the",
                 getItFrom: "Get it on",
@@ -928,18 +882,18 @@ joinPartner: "انضم كشريك الان",
                 
                 // About Section
                 promoCardTitle: "Looking for a recurring daily income all year round?",
-                promoCardDesc: "With Pep Pep, this income becomes a reality",
+                promoCardDesc: "With Beep beep, this income becomes a reality",
                 promoCardLink: "Join as a partner now",
                 aboutTitle: "Beep Beep",
-                aboutDesc1: "Today, Pep Pep offers a complete system of technical solutions that combine high safety, operational efficiency, and attention to sustainability.",
+                aboutDesc1: "Today, Beep beep offers a complete system of technical solutions that combine high safety, operational efficiency, and attention to sustainability.",
                 aboutDesc2: "We continuously develop our technologies to make the experience easier, clearer, and closer to the user's daily needs, with careful attention to system details. Our goal is to make urban mobility smoother with well-studied technical solutions that serve both the user and the environment.",
                 ourVehicles: "Beep Beep Vehicles",
                 
                 // Where We Are Section
                 whereWeAreTitle: "Expansion Journey",
-                whereWeAreDesc1: "Pep Pep's journey started from Saudi Arabia, and today we're expanding our presence with confident steps to reach new cities and communities. We offer a mobility experience that combines enjoyment, flexibility, and ease of use, to serve various mobility needs within the city in a practical and comfortable way.",
+                whereWeAreDesc1: "Beep beep's journey started from Saudi Arabia, and today we're expanding our presence with confident steps to reach new cities and communities. We offer a mobility experience that combines enjoyment, flexibility, and ease of use, to serve various mobility needs within the city in a practical and comfortable way.",
                 whereWeAreDesc2: "We believe that modern mobility is an essential part of quality of life, which is why we continuously work to provide solutions that help people move easily and contribute to building more active, efficient, and sustainable cities.",
-                globalMap: "Pep Pep Global Presence Map",
+                globalMap: "Beep beep Global Presence Map",
                 
                 // Impact Section
                 impactTitle: "Operate a Modern Mobility System in Your City in Partnership with Beep Beep",
@@ -949,14 +903,14 @@ joinPartner: "انضم كشريك الان",
                 
                 // Who We Are Section
                 whoWeAreTitle: "Who We Are",
-                whoWeAreDesc1: "Pep Pep is an app that provides scooter and bike rental services within the city, aiming to facilitate daily trips in a practical and smooth way that suits the fast pace of life. We provide flexible transportation for short trips within neighborhoods and roads, with an easy, clear, and accessible service.",
-                whoWeAreDesc2: "Our mission at Pep Pep focuses on easier mobility, less environmental impact, and an enjoyable user experience. We work to provide solutions that help reduce congestion and support a more vibrant and sustainable lifestyle within cities, while ensuring the experience is comfortable and safe in all its details.",
-                whoWeAreDesc3: "The Pep Pep team combines experience and passion, and continuously works to develop the service and improve the user experience, to be a reliable choice for daily mobility and part of a more organized and smooth urban lifestyle.",
-                joinTeam: "Join Pep Pep Team",
+                whoWeAreDesc1: "Beep beep is an app that provides scooter and bike rental services within the city, aiming to facilitate daily trips in a practical and smooth way that suits the fast pace of life. We provide flexible transportation for short trips within neighborhoods and roads, with an easy, clear, and accessible service.",
+                whoWeAreDesc2: "Our mission at Beep beep focuses on easier mobility, less environmental impact, and an enjoyable user experience. We work to provide solutions that help reduce congestion and support a more vibrant and sustainable lifestyle within cities, while ensuring the experience is comfortable and safe in all its details.",
+                whoWeAreDesc3: "The Beep beep team combines experience and passion, and continuously works to develop the service and improve the user experience, to be a reliable choice for daily mobility and part of a more organized and smooth urban lifestyle.",
+                joinTeam: "Join Beep beep Team",
                 
                 // What Is Section
-                whatIsTitle: "What is Pep Pep?",
-                whatIsDesc1: "Pep Pep is a smart mobility app that allows you to rent bikes and electric scooters with ease.",
+                whatIsTitle: "What is Beep beep?",
+                whatIsDesc1: "Beep beep is a smart mobility app that allows you to rent bikes and electric scooters with ease.",
                 whatIsDesc2: "You can open the app, find the nearest vehicle, and start your trip immediately without lengthy procedures or waiting.",
                 whatIsDesc3: "The app is designed to provide fast, economical, and eco-friendly transportation within cities and vital areas.",
                 fastFeature: "Fast & Instant",
@@ -967,7 +921,7 @@ joinPartner: "انضم كشريك الان",
                 ecoDesc: "Electric scooters that reduce carbon footprint",
                 
                 // Features Section
-                whyChooseTitle: "Why Choose Pep Pep?",
+                whyChooseTitle: "Why Choose Beep beep?",
                 whyChooseDesc: "We combine technology and comfort to redefine urban mobility.",
                 instantTitle: "Instant & Easy",
                 instantDesc: "Scan the QR code and start your trip in seconds. No keys, no hassle, just smart travel.",
@@ -978,27 +932,30 @@ joinPartner: "انضم كشريك الان",
                 
                 // Process Section
                 processTitle: "Start Riding in 3 Simple Steps",
-                processDesc: "The Pep Pep experience is designed for maximum efficiency and enjoyment.",
-                step1Title: "Find & Scan",
-                step1Desc: "Locate the nearest scooter on the app map and scan the QR code to unlock it.",
-                step2Title: "Ride & Enjoy",
-                step2Desc: "Cruise through the city enjoying the fresh air. Make sure to follow all local traffic laws.",
-                step3Title: "Park & Lock",
-                step3Desc: "Responsibly park the scooter in a designated area and tap 'End Ride' in the app to lock the scooter.",
+                processDesc: "The Beep beep experience is designed for maximum efficiency and enjoyment.",
+                processStep1Title: "Find & Scan",
+                processStep1Desc: "Locate the nearest scooter on the app map and scan the QR code to unlock it.",
+                processStep2Title: "Ride & Enjoy",
+                processStep2Desc: "Cruise through the city enjoying the fresh air. Make sure to follow all local traffic laws.",
+                processStep3Title: "Park & Lock",
+                processStep3Desc: "Responsibly park the scooter in a designated area and tap 'End Ride' in the app to lock the scooter.",
                 
+                 //   product slider
+                 productSliderTitle: "Product Details",
+                 productSliderDesc: "Beep beep is a smart mobility app that allows you to easily rent electric scooters and bikes.",
                 // Final CTA
                 readyTitle: "Ready to Start Your Journey?",
-                readyDesc: "Download the Pep Pep app today and transform your city mobility.",
+                readyDesc: "Download the Beep beep app today and transform your city mobility.",
                 
                 // Footer
-                copyright: "&copy; 2025 Pep Pep App. All rights reserved.",
+                copyright: "&copy; 2025 Beep beep App. All rights reserved.",
                 privacy: "Privacy Policy",
                 terms: "Terms of Service",
                 contact: "Contact Us",
 
 
                 recurringIncomeTitle: "Want a recurring daily income throughout the year?",
-recurringIncomeSubtitle: "With Pep Pep, this income becomes a reality",
+recurringIncomeSubtitle: "With Beep beep, this income becomes a reality",
 joinPartner: "Join as a partner now",
             },
             de: {
@@ -1010,8 +967,8 @@ joinPartner: "Join as a partner now",
                 // Hero Section
                 heroTitle1: "Mobilität ...",
                 heroTitle2: "Optimiert",
-                heroSubtitle: "Wenn Sie Transport benötigen, ist Pep Pep näher bei Ihnen.",
-                heroDesc1: "Mit Pep Pep genießen Sie Roller- und Fahrradverleihdienste in der Stadt, die mit Ihrem schnellen Lebensstil Schritt halten.",
+                heroSubtitle: "Wenn Sie Transport benötigen, ist Beep beep näher bei Ihnen.",
+                heroDesc1: "Mit Beep beep genießen Sie Roller- und Fahrradverleihdienste in der Stadt, die mit Ihrem schnellen Lebensstil Schritt halten.",
                 heroDesc2: "Reibungslose Mobilität, weniger Zeitverschwendung auf der Straße, budgetfreundlich, um Ihre zuverlässige Wahl für kurze Strecken zu sein.",
                 downloadFrom: "Laden Sie es aus dem",
                 getItFrom: "Holen Sie es bei",
@@ -1021,33 +978,33 @@ joinPartner: "Join as a partner now",
                 unlockScooter: "Mieten Sie Ihr Fahrzeug",
                 
                 // About Section
-                aboutTitle: "Pep Pep",
-                aboutDesc1: "Heute bietet Pep Pep ein komplettes System technischer Lösungen, die hohe Sicherheit, Betriebseffizienz und Nachhaltigkeit kombinieren.",
+                aboutTitle: "Beep beep",
+                aboutDesc1: "Heute bietet Beep beep ein komplettes System technischer Lösungen, die hohe Sicherheit, Betriebseffizienz und Nachhaltigkeit kombinieren.",
                 aboutDesc2: "Wir entwickeln unsere Technologien kontinuierlich weiter, um die Erfahrung einfacher, klarer und näher an den täglichen Bedürfnissen der Benutzer zu machen, mit sorgfältiger Aufmerksamkeit für Systemdetails. Unser Ziel ist es, die urbane Mobilität mit gut durchdachten technischen Lösungen reibungsloser zu gestalten, die sowohl dem Benutzer als auch der Umwelt dienen.",
-                ourVehicles: "Pep Pep Fahrzeuge",
+                ourVehicles: "Beep beep Fahrzeuge",
                 
                 // Where We Are Section
                 whereWeAreTitle: "Expansionsreise",
-                whereWeAreDesc1: "Pep Peps Reise begann in Saudi-Arabien, und heute erweitern wir unsere Präsenz mit selbstbewussten Schritten, um neue Städte und Gemeinden zu erreichen. Wir bieten ein Mobilitätserlebnis, das Genuss, Flexibilität und Benutzerfreundlichkeit kombiniert, um verschiedene Mobilitätsbedürfnisse in der Stadt auf praktische und komfortable Weise zu bedienen.",
+                whereWeAreDesc1: "Beep beeps Reise begann in Saudi-Arabien, und heute erweitern wir unsere Präsenz mit selbstbewussten Schritten, um neue Städte und Gemeinden zu erreichen. Wir bieten ein Mobilitätserlebnis, das Genuss, Flexibilität und Benutzerfreundlichkeit kombiniert, um verschiedene Mobilitätsbedürfnisse in der Stadt auf praktische und komfortable Weise zu bedienen.",
                 whereWeAreDesc2: "Wir glauben, dass moderne Mobilität ein wesentlicher Bestandteil der Lebensqualität ist, weshalb wir kontinuierlich daran arbeiten, Lösungen bereitzustellen, die Menschen helfen, sich leicht zu bewegen, und dazu beitragen, aktivere, effizientere und nachhaltigere Städte aufzubauen.",
-                globalMap: "Pep Pep Globale Präsenzkarte",
+                globalMap: "Beep beep Globale Präsenzkarte",
                 
                 // Impact Section
-                impactTitle: "Betreiben Sie ein modernes Mobilitätssystem in Ihrer Stadt in Partnerschaft mit Pep Pep",
+                impactTitle: "Betreiben Sie ein modernes Mobilitätssystem in Ihrer Stadt in Partnerschaft mit Beep beep",
                 impactDesc1: "Wir bieten Ihnen ein umfassendes Betriebsmodell, das es Ihnen ermöglicht, zur Entwicklung urbaner Mobilitätsdienste beizutragen, eine sauberere Umwelt zu unterstützen und eine einfachere tägliche Bewegung für Bewohner innerhalb eines klaren Betriebsrahmens und gut durchdachter Expansionsmöglichkeiten zu ermöglichen.",
-                impactDesc2: "Mit Pep Pep werden Sie der Betriebspartner für Roller- und Fahrraddienste in Ihrer Stadt, beteiligen sich an der Bereitstellung eines Dienstes, den die Menschen täglich benötigen, und eröffnen sich eine nachhaltige Einnahmequelle.",
+                impactDesc2: "Mit Beep beep werden Sie der Betriebspartner für Roller- und Fahrraddienste in Ihrer Stadt, beteiligen sich an der Bereitstellung eines Dienstes, den die Menschen täglich benötigen, und eröffnen sich eine nachhaltige Einnahmequelle.",
                 applyNow: "Registrieren Sie Ihr Interesse jetzt",
                 
                 // Who We Are Section
                 whoWeAreTitle: "Wer wir sind",
-                whoWeAreDesc1: "Pep Pep ist eine App, die Roller- und Fahrradverleihdienste in der Stadt bereitstellt und darauf abzielt, tägliche Fahrten auf praktische und reibungslose Weise zu erleichtern, die dem schnellen Lebensrhythmus entspricht. Wir bieten flexible Transportmittel für kurze Fahrten innerhalb von Nachbarschaften und Straßen, mit einem einfachen, klaren und zugänglichen Service.",
-                whoWeAreDesc2: "Unsere Mission bei Pep Pep konzentriert sich auf einfachere Mobilität, geringere Umweltauswirkungen und ein angenehmes Benutzererlebnis. Wir arbeiten daran, Lösungen bereitzustellen, die dazu beitragen, Staus zu reduzieren und einen lebendigeren und nachhaltigeren Lebensstil in Städten zu unterstützen, wobei wir sicherstellen, dass die Erfahrung in allen Details komfortabel und sicher ist.",
-                whoWeAreDesc3: "Das Pep Pep-Team kombiniert Erfahrung und Leidenschaft und arbeitet kontinuierlich daran, den Service zu entwickeln und das Benutzererlebnis zu verbessern, um eine zuverlässige Wahl für die tägliche Mobilität und Teil eines organisierten und reibungslosen urbanen Lebensstils zu sein.",
-                joinTeam: "Werden Sie Teil des Pep Pep Teams",
+                whoWeAreDesc1: "Beep beep ist eine App, die Roller- und Fahrradverleihdienste in der Stadt bereitstellt und darauf abzielt, tägliche Fahrten auf praktische und reibungslose Weise zu erleichtern, die dem schnellen Lebensrhythmus entspricht. Wir bieten flexible Transportmittel für kurze Fahrten innerhalb von Nachbarschaften und Straßen, mit einem einfachen, klaren und zugänglichen Service.",
+                whoWeAreDesc2: "Unsere Mission bei Beep beep konzentriert sich auf einfachere Mobilität, geringere Umweltauswirkungen und ein angenehmes Benutzererlebnis. Wir arbeiten daran, Lösungen bereitzustellen, die dazu beitragen, Staus zu reduzieren und einen lebendigeren und nachhaltigeren Lebensstil in Städten zu unterstützen, wobei wir sicherstellen, dass die Erfahrung in allen Details komfortabel und sicher ist.",
+                whoWeAreDesc3: "Das Beep beep-Team kombiniert Erfahrung und Leidenschaft und arbeitet kontinuierlich daran, den Service zu entwickeln und das Benutzererlebnis zu verbessern, um eine zuverlässige Wahl für die tägliche Mobilität und Teil eines organisierten und reibungslosen urbanen Lebensstils zu sein.",
+                joinTeam: "Werden Sie Teil des Beep beep Teams",
                 
                 // What Is Section
-                whatIsTitle: "Was ist Pep Pep?",
-                whatIsDesc1: "Pep Pep ist eine intelligente Mobilitäts-App, mit der Sie problemlos Fahrräder und Elektroroller mieten können.",
+                whatIsTitle: "Was ist Beep beep?",
+                whatIsDesc1: "Beep beep ist eine intelligente Mobilitäts-App, mit der Sie problemlos Fahrräder und Elektroroller mieten können.",
                 whatIsDesc2: "Sie können die App öffnen, das nächste Fahrzeug finden und Ihre Fahrt sofort ohne lange Verfahren oder Wartezeiten starten.",
                 whatIsDesc3: "Die App wurde entwickelt, um schnellen, wirtschaftlichen und umweltfreundlichen Transport in Städten und wichtigen Gebieten zu bieten.",
                 fastFeature: "Schnell & Sofort",
@@ -1058,7 +1015,7 @@ joinPartner: "Join as a partner now",
                 ecoDesc: "Elektroroller, die den CO2-Fußabdruck reduzieren",
                 
                 // Features Section
-                whyChooseTitle: "Warum Pep Pep wählen?",
+                whyChooseTitle: "Warum Beep beep wählen?",
                 whyChooseDesc: "Wir kombinieren Technologie und Komfort, um urbane Mobilität neu zu definieren.",
                 instantTitle: "Sofort & Einfach",
                 instantDesc: "Scannen Sie den QR-Code und starten Sie Ihre Fahrt in Sekunden. Keine Schlüssel, kein Ärger, nur intelligentes Reisen.",
@@ -1069,7 +1026,7 @@ joinPartner: "Join as a partner now",
                 
                 // Process Section
                 processTitle: "Starten Sie die Fahrt in 3 einfachen Schritten",
-                processDesc: "Die Pep Pep Erfahrung ist für maximale Effizienz und Freude konzipiert.",
+                processDesc: "Die Beep beep Erfahrung ist für maximale Effizienz und Freude konzipiert.",
                 step1Title: "Finden & Scannen",
                 step1Desc: "Lokalisieren Sie den nächsten Roller auf der App-Karte und scannen Sie den QR-Code, um ihn zu entsperren.",
                 step2Title: "Fahren & Genießen",
@@ -1079,17 +1036,17 @@ joinPartner: "Join as a partner now",
                 
                 // Final CTA
                 readyTitle: "Bereit für Ihre Reise?",
-                readyDesc: "Laden Sie die Pep Pep App noch heute herunter und transformieren Sie Ihre städtische Mobilität.",
+                readyDesc: "Laden Sie die Beep beep App noch heute herunter und transformieren Sie Ihre städtische Mobilität.",
                 
                 // Footer
-                copyright: "&copy; 2025 Pep Pep App. Alle Rechte vorbehalten.",
+                copyright: "&copy; 2025 Beep beep App. Alle Rechte vorbehalten.",
                 privacy: "Datenschutzrichtlinie",
                 terms: "Nutzungsbedingungen",
                 contact: "Kontaktieren Sie uns",
 
 
                 recurringIncomeTitle: "Wollen Sie ein wiederkehrendes tägliches Einkommen das ganze Jahr über?",
-recurringIncomeSubtitle: "Mit Pep Pep wird dieses Einkommen Realität",
+recurringIncomeSubtitle: "Mit Beep beep wird dieses Einkommen Realität",
 joinPartner: "Jetzt als Partner beitreten",
             },
             es: {
@@ -1101,8 +1058,8 @@ joinPartner: "Jetzt als Partner beitreten",
                 // Hero Section
                 heroTitle1: "Movilidad ...",
                 heroTitle2: "Optimizada",
-                heroSubtitle: "Si necesitas transporte, Pep Pep está más cerca de ti.",
-                heroDesc1: "Con Pep Pep, disfrutas de servicios de alquiler de scooters y bicicletas dentro de la ciudad de una manera que se adapta a tu estilo de vida acelerado.",
+                heroSubtitle: "Si necesitas transporte, Beep beep está más cerca de ti.",
+                heroDesc1: "Con Beep beep, disfrutas de servicios de alquiler de scooters y bicicletas dentro de la ciudad de una manera que se adapta a tu estilo de vida acelerado.",
                 heroDesc2: "Movilidad fluida, menos tiempo perdido en el camino, económico, para ser tu opción confiable para viajes cortos.",
                 downloadFrom: "Descárgalo en",
                 getItFrom: "Consíguelo en",
@@ -1112,33 +1069,33 @@ joinPartner: "Jetzt als Partner beitreten",
                 unlockScooter: "Alquila Tu Vehículo",
                 
                 // About Section
-                aboutTitle: "Pep Pep",
-                aboutDesc1: "Hoy, Pep Pep ofrece un sistema completo de soluciones técnicas que combinan alta seguridad, eficiencia operativa y atención a la sostenibilidad.",
+                aboutTitle: "Beep beep",
+                aboutDesc1: "Hoy, Beep beep ofrece un sistema completo de soluciones técnicas que combinan alta seguridad, eficiencia operativa y atención a la sostenibilidad.",
                 aboutDesc2: "Desarrollamos continuamente nuestras tecnologías para hacer la experiencia más fácil, clara y cercana a las necesidades diarias del usuario, con atención cuidadosa a los detalles del sistema. Nuestro objetivo es hacer la movilidad urbana más fluida con soluciones técnicas bien estudiadas que sirvan tanto al usuario como al medio ambiente.",
-                ourVehicles: "Vehículos Pep Pep",
+                ourVehicles: "Vehículos Beep beep",
                 
                 // Where We Are Section
                 whereWeAreTitle: "Viaje de Expansión",
-                whereWeAreDesc1: "El viaje de Pep Pep comenzó desde Arabia Saudita, y hoy estamos expandiendo nuestra presencia con pasos seguros para llegar a nuevas ciudades y comunidades. Ofrecemos una experiencia de movilidad que combina disfrute, flexibilidad y facilidad de uso, para servir diversas necesidades de movilidad dentro de la ciudad de manera práctica y cómoda.",
+                whereWeAreDesc1: "El viaje de Beep beep comenzó desde Arabia Saudita, y hoy estamos expandiendo nuestra presencia con pasos seguros para llegar a nuevas ciudades y comunidades. Ofrecemos una experiencia de movilidad que combina disfrute, flexibilidad y facilidad de uso, para servir diversas necesidades de movilidad dentro de la ciudad de manera práctica y cómoda.",
                 whereWeAreDesc2: "Creemos que la movilidad moderna es una parte esencial de la calidad de vida, por lo que trabajamos continuamente para proporcionar soluciones que ayuden a las personas a moverse fácilmente y contribuyan a construir ciudades más activas, eficientes y sostenibles.",
-                globalMap: "Mapa de Presencia Global de Pep Pep",
+                globalMap: "Mapa de Presencia Global de Beep beep",
                 
                 // Impact Section
-                impactTitle: "Opera un Sistema de Movilidad Moderno en Tu Ciudad en Asociación con Pep Pep",
+                impactTitle: "Opera un Sistema de Movilidad Moderno en Tu Ciudad en Asociación con Beep beep",
                 impactDesc1: "Te proporcionamos un modelo operativo integral que te permite contribuir al desarrollo de servicios de movilidad urbana, apoyar un entorno más limpio y un movimiento diario más fácil para los residentes, dentro de un marco operativo claro y oportunidades de expansión bien estudiadas.",
-                impactDesc2: "Con Pep Pep, te conviertes en el socio operativo de servicios de scooters y bicicletas en tu ciudad, participas en proporcionar un servicio que las personas necesitan diariamente y abres una fuente de ingresos sostenible para ti mismo.",
+                impactDesc2: "Con Beep beep, te conviertes en el socio operativo de servicios de scooters y bicicletas en tu ciudad, participas en proporcionar un servicio que las personas necesitan diariamente y abres una fuente de ingresos sostenible para ti mismo.",
                 applyNow: "Registra Tu Interés Ahora",
                 
                 // Who We Are Section
                 whoWeAreTitle: "Quiénes Somos",
-                whoWeAreDesc1: "Pep Pep es una aplicación que proporciona servicios de alquiler de scooters y bicicletas dentro de la ciudad, con el objetivo de facilitar los viajes diarios de manera práctica y fluida que se adapte al ritmo acelerado de la vida. Proporcionamos transporte flexible para viajes cortos dentro de vecindarios y carreteras, con un servicio fácil, claro y accesible.",
-                whoWeAreDesc2: "Nuestra misión en Pep Pep se centra en una movilidad más fácil, menor impacto ambiental y una experiencia de usuario agradable. Trabajamos para proporcionar soluciones que ayuden a reducir la congestión y apoyen un estilo de vida más vibrante y sostenible dentro de las ciudades, asegurando que la experiencia sea cómoda y segura en todos sus detalles.",
-                whoWeAreDesc3: "El equipo de Pep Pep combina experiencia y pasión, y trabaja continuamente para desarrollar el servicio y mejorar la experiencia del usuario, para ser una opción confiable para la movilidad diaria y parte de un estilo de vida urbano más organizado y fluido.",
-                joinTeam: "Únete al Equipo de Pep Pep",
+                whoWeAreDesc1: "Beep beep es una aplicación que proporciona servicios de alquiler de scooters y bicicletas dentro de la ciudad, con el objetivo de facilitar los viajes diarios de manera práctica y fluida que se adapte al ritmo acelerado de la vida. Proporcionamos transporte flexible para viajes cortos dentro de vecindarios y carreteras, con un servicio fácil, claro y accesible.",
+                whoWeAreDesc2: "Nuestra misión en Beep beep se centra en una movilidad más fácil, menor impacto ambiental y una experiencia de usuario agradable. Trabajamos para proporcionar soluciones que ayuden a reducir la congestión y apoyen un estilo de vida más vibrante y sostenible dentro de las ciudades, asegurando que la experiencia sea cómoda y segura en todos sus detalles.",
+                whoWeAreDesc3: "El equipo de Beep beep combina experiencia y pasión, y trabaja continuamente para desarrollar el servicio y mejorar la experiencia del usuario, para ser una opción confiable para la movilidad diaria y parte de un estilo de vida urbano más organizado y fluido.",
+                joinTeam: "Únete al Equipo de Beep beep",
                 
                 // What Is Section
-                whatIsTitle: "¿Qué es Pep Pep?",
-                whatIsDesc1: "Pep Pep es una aplicación de movilidad inteligente que te permite alquilar bicicletas y scooters eléctricos con facilidad.",
+                whatIsTitle: "¿Qué es Beep beep?",
+                whatIsDesc1: "Beep beep es una aplicación de movilidad inteligente que te permite alquilar bicicletas y scooters eléctricos con facilidad.",
                 whatIsDesc2: "Puedes abrir la aplicación, encontrar el vehículo más cercano y comenzar tu viaje inmediatamente sin procedimientos largos ni esperas.",
                 whatIsDesc3: "La aplicación está diseñada para proporcionar transporte rápido, económico y ecológico dentro de ciudades y áreas vitales.",
                 fastFeature: "Rápido e Instantáneo",
@@ -1149,7 +1106,7 @@ joinPartner: "Jetzt als Partner beitreten",
                 ecoDesc: "Scooters eléctricos que reducen la huella de carbono",
                 
                 // Features Section
-                whyChooseTitle: "¿Por Qué Elegir Pep Pep?",
+                whyChooseTitle: "¿Por Qué Elegir Beep beep?",
                 whyChooseDesc: "Combinamos tecnología y comodidad para redefinir la movilidad urbana.",
                 instantTitle: "Instantáneo y Fácil",
                 instantDesc: "Escanea el código QR y comienza tu viaje en segundos. Sin llaves, sin complicaciones, solo viajes inteligentes.",
@@ -1160,7 +1117,7 @@ joinPartner: "Jetzt als Partner beitreten",
                 
                 // Process Section
                 processTitle: "Comienza a Conducir en 3 Pasos Sencillos",
-                processDesc: "La experiencia Pep Pep está diseñada para máxima eficiencia y disfrute.",
+                processDesc: "La experiencia Beep beep está diseñada para máxima eficiencia y disfrute.",
                 step1Title: "Encuentra y Escanea",
                 step1Desc: "Localiza el scooter más cercano en el mapa de la aplicación y escanea el código QR para desbloquearlo.",
                 step2Title: "Conduce y Disfruta",
@@ -1170,17 +1127,17 @@ joinPartner: "Jetzt als Partner beitreten",
                 
                 // Final CTA
                 readyTitle: "¿Listo para Comenzar Tu Viaje?",
-                readyDesc: "Descarga la aplicación Pep Pep hoy y transforma tu movilidad urbana.",
+                readyDesc: "Descarga la aplicación Beep beep hoy y transforma tu movilidad urbana.",
                 
                 // Footer
-                copyright: "&copy; 2025 Aplicación Pep Pep. Todos los derechos reservados.",
+                copyright: "&copy; 2025 Aplicación Beep beep. Todos los derechos reservados.",
                 privacy: "Política de Privacidad",
                 terms: "Términos de Servicio",
                 contact: "Contáctanos",
 
 
                 recurringIncomeTitle: "¿Quieres un ingreso diario recurrente durante todo el año?",
-recurringIncomeSubtitle: "Con Pep Pep, este ingreso se hace realidad",
+recurringIncomeSubtitle: "Con Beep beep, este ingreso se hace realidad",
 joinPartner: "Únete como socio ahora",
             }
         };
@@ -1353,72 +1310,41 @@ joinPartner: "Únete como socio ahora",
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const slider = document.querySelector('.product-slider');
-            if (!slider) return;
-            const slides = Array.from(slider.querySelectorAll('.slide'));
-            const prevBtn = slider.querySelector('.slider-nav.prev');
-            const nextBtn = slider.querySelector('.slider-nav.next');
-            const dots = Array.from(slider.querySelectorAll('.dot'));
+   new Swiper(".product-swiper", {
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    spaceBetween: 30,
 
-            let current = 1; // start with middle slide
-            function render() {
-                slides.forEach((s, i) => {
-                    s.classList.remove('active', 'prev', 'next', 'hidden');
-                    if (i === current) s.classList.add('active');
-                });
-                const prevIndex = (current - 1 + slides.length) % slides.length;
-                const nextIndex = (current + 1) % slides.length;
-                slides.forEach((s, i) => {
-                    if (i === prevIndex) s.classList.add('prev');
-                    else if (i === nextIndex) s.classList.add('next');
-                    else if (i !== current && i !== prevIndex && i !== nextIndex) s.classList.add('hidden');
-                });
+    effect: "coverflow",
+    coverflowEffect: {
+      rotate: 0,
+      stretch: -60,
+      depth: 200,
+      modifier: 1,
+      slideShadows: false,
+    },
 
-                dots.forEach(d => d.classList.remove('bg-primary-black'));
-                if (dots[current]) dots[current].classList.add('bg-primary-black');
-            }
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
 
-            function next() { current = (current + 1) % slides.length; console.debug('slider: next', current); render(); }
-            function prev() { current = (current - 1 + slides.length) % slides.length; console.debug('slider: prev', current); render(); }
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
 
-            if (prevBtn) prevBtn.addEventListener('click', prev);
-            if (nextBtn) nextBtn.addEventListener('click', next);
-
-            // Fallback: delegate on parent in case the button has overlapping layers
-            slider.addEventListener('click', (e) => {
-                const el = e.target;
-                if (el.closest && el.closest('.slider-nav.prev')) prev();
-                if (el.closest && el.closest('.slider-nav.next')) next();
-            });
-
-            dots.forEach(d => d.addEventListener('click', (e) => {
-                const idx = Number(e.currentTarget.dataset.index);
-                if (!isNaN(idx)) { current = idx; render(); }
-            }));
-
-            // swipe handlers for touch
-            let startX = 0;
-            let isDown = false;
-            const container = slider.querySelector('.slides');
-            container.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX; isDown = true;
-            });
-            container.addEventListener('touchmove', (e) => {
-                if (!isDown) return;
-                const delta = e.touches[0].clientX - startX;
-                if (Math.abs(delta) > 50) { if (delta < 0) next(); else prev(); isDown = false; }
-            });
-            container.addEventListener('touchend', () => { isDown = false; });
-
-            // keyboard
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') prev();
-                if (e.key === 'ArrowRight') next();
-            });
-
-            render();
-        });
+    breakpoints: {
+      0: {
+        slidesPerView: 1.1,
+        spaceBetween: 16,
+      },
+      768: {
+        slidesPerView: "auto",
+      },
+    },
+  });
     </script>
 </body>
 </html>
