@@ -144,9 +144,9 @@
             animation: pulse-glow 2s ease-in-out infinite alternate;
         }
         .bg{
-            background-image: url("photos/1.png");
+            background-image: url("./images/beeb-beeb-section.png");
             background-size: cover;
-            background-position: center;
+            background-position: left;
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -191,7 +191,7 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        
+        /* responsive padding moved to utility classes on the element to preserve responsiveness */
         /* 3D transform on hover */
         .hover-3d {
             transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -397,23 +397,24 @@
 
     <main>
         <!-- Hero Section -->
-        <section class=" bg-[#ECB927] h-screen text-white   overflow-hidden">
+        <section class=" h-screen text-white overflow-hidden" style="background-image:  url('images/freepik__img1-create-a-closeup-studio-scene-of-a-saudi-man-__36539.png'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center justify-center md:space-x-12">
+                <div class="flex flex-col md:flex-row items-center justify-space-around  md:space-x-12">
                     
                     <!-- Text Content -->
-                    <div class="mb-12 md:mb-0 mt-[80px] text-center md:text-right" data-aos="fade-right" data-aos-duration="1000">
-                        <h1 class="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 animate__animated animate__fadeInUp text-[#1D1D1B]">
+                    <div class="mb-12 md:mb-0 mt-[180px] text-center md:text-right" data-aos="fade-right" data-aos-duration="1000">
+                        <h1 class="text-6xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-6 animate__animated animate__fadeInUp text-[#1D1D1B]">
                             <span class="inline-block mb-4" data-translate="heroTitle1">تنقّل ...</span><br/>
                             <span class="inline-block" data-translate="heroTitle2">بالشكل الأمثل</span>
                         </h1><br/>
-                        <p class="text-xl md:text-2xl text-primary-black mb-6 font-semibold animate__animated animate__fadeInUp animate__delay-1s max-w-lg md:mx-0" data-translate="heroSubtitle">
-                            إذا احتجت وسيلة تنقّل، بيب بيب أقرب لك.
+                        <p class="text-xl md:text-2xl text-[#1D1D1B] mb-6 font-semibold animate__animated animate__fadeInUp animate__delay-1s max-w-lg md:mx-0" data-translate="heroSubtitle">
+                       <span class="block"> بيب بيب أقرب لك.</span><br/>
+                       <span class="  block">     إذا احتجت وسيلة تنقّل،</span>
                         </p>
 
                         <!-- CTA Button (black pill) -->
                         <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
-                            <a href="invest-with-beeb-beeb.html" class="inline-block px-10 py-4 text-lg font-bold text-white bg-primary-black rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-[1.03] active:scale-95 magnetic-btn">
+                            <a href="invest-with-beeb-beeb.html" class="inline-block px-10 py-4 text-lg font-bold text-white bg-primary-black rounded-full shadow-lg hover:bg-black-800 transition-all duration-200 transform hover:scale-[1.23] active:scale-95 magnetic-btn" data-translate="herobtn">
                                 انضم كشريكك الان
                             </a>
                         </div>
@@ -432,10 +433,7 @@
                             </div>
                         </div>
 
-                        <!-- Hero Image (visible on md+) -->
-                        <div class="relative flex justify-center md:justify-end mt-2">
-                            <img src="./photos/hero.png" alt="سكوتر بيب بيب" aria-hidden="true" loading="lazy" draggable="false" class="hidden md:block  h-[70vh] lg:h-[85vh] xl:h-[90vh] max-w-[520px] lg:max-w-[760px] object-contain -mr-6 lg:-mr-12 drop-shadow-2xl z-10" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -451,7 +449,7 @@
                         <!-- circular logo on top -->
                         <div class="absolute -top-12 left-1/2  transform -translate-x-1/2">
                             <div class="bg-black rounded-full p-2  shadow-xl ">
-                                <img src="logo.png" alt="لوجو بيب بيب" class="h-14 w-14 object-cover">
+                                <img src="./images/beeb-beeb-logo.png" alt="لوجو بيب بيب" class="w-20 h-20 object-cover">
                             </div>
                         </div>
 
@@ -471,11 +469,11 @@
 
         
         <!-- New Dark Showcase Section (scooter + description) -->
-        <section class="py-20 bg-black text-white overflow-hidden">
+        <section class="py-20  text-white overflow-hidden" style="background-image: url('./images/bike-image.png'); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: overlay;">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-16 ">
                     <!-- Text Column -->
-                    <div class="md:w-1/2 text-right md:text-right" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="md:w-1/2 text-right md:text-right lg:pt-10 lg:pb-16 lg:px-4 lg:px-0 lg:pl-56" data-aos="fade-up" data-aos-duration="1000">
                         <h2 class="text-5xl md:text-6xl font-extrabold mb-6">بيب بيب</h2>
                         <p class="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">
                             بيب بيب اليوم تقدّم منظومة متكاملة من الحلول التقنية اللي تجمع بين الأمان العالي، والكفاءة في التشغيل، والاهتمام بالاستدامة.
@@ -486,21 +484,17 @@
                     </div>
 
                     <!-- Image Column -->
-                    <div class="md:w-1/2 flex justify-center md:justify-end" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-                        <div class="w-full max-w-lg">
-                            <img src="./photos/bike-removebg-preview.png" alt="سكوتر بيب بيب" class="w-full h-auto object-contain drop-shadow-2xl">
-                        </div>
-                    </div>
+                 
                 </div>
             </div>
         </section>
         <!-- Where We Are Section -->
         <section class="py-20 bg-white overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col  md:flex-row-reverse items-center md:items-start gap-12 max-w-6xl mx-auto">
+                <div class="flex flex-col  md:flex-row-reverse items-start md:items-start gap-12 max-w-6xl mx-auto">
                     <!-- Map Image (left on desktop) -->
-                    <div class="md:w-1/2 order-1 sm:d-none" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="./photos/map.png" alt="خريطة تواجد بيب بيب" class="w-full h-auto object-contain">
+                    <div class="md:w-1/2 w-full md:order-1 order-2 flex justify-center md:justify-start" data-aos="zoom-in" data-aos-duration="1000">
+                        <img src="./images/map-section.png" alt="خريطة تواجد بيب بيب" class="w-full max-w-lg md:max-w-none h-auto md:max-h-[420px] object-cover">
                     </div>
 
                     <!-- Text (right) -->
@@ -517,17 +511,17 @@
             </div>
         </section>
    <!-- What Is Pep Pep Section -->
-        <section class="py-20 bg overflow-hidden">
+        <section class="py-20 bg-[#F3D008] bg overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="section-title text-4xl font-bold text-primary-black mb-8" data-aos="fade-up" data-aos-duration="800" data-translate="whatIsTitle">ما هو بيب بيب؟</h2>
-                    <p class="text-xl text-gray-700 mb-6 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-translate="whatIsDesc1">
+                    <h2 class=" text-4xl font-bold text-primary-black mb-8" data-aos="fade-up" data-aos-duration="800" data-translate="whatIsTitle">ما هو بيب بيب؟</h2>
+                    <p class="text-xl text-gray-700 mb-3 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-translate="whatIsDesc1">
                         بيب بيب هو تطبيق تنقل ذكي يتيح لك استئجار الدراجات والسكوترات الكهربائية بكل سهولة.
                     </p>
-                    <p class="text-xl text-gray-700 mb-6 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-translate="whatIsDesc2">
+                    <p class="text-xl text-gray-700 mb-3 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-translate="whatIsDesc2">
                         تقدر تفتح التطبيق تلاقي اقرب مركبة وتبدا رحلتك فورا بدون اجراءات طويلة ولا انتظار
                     </p>
-                    <p class="text-xl text-gray-700 mb-10 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" data-translate="whatIsDesc3">
+                    <p class="text-xl text-gray-700 mb-4 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" data-translate="whatIsDesc3">
                         التطبيق مصمم ليوفر تنقل سريع اقتصادي وصديق للبيئة داخل المدن والمناطق الحيوية
                     </p>
                     
@@ -671,13 +665,13 @@
 
                     <div class="slides relative h-[420px] md:h-[520px]">
                         <div class="slide" data-index="0">
-                            <img src="./photos/bikes.png" alt="تفاصيل سكوتر" class="w-60 h-60 object-cover rounded-3xl shadow-2xl">
+                            <img src="/assets/img/scooter-down.png" alt="تفاصيل سكوتر" class="w-60 h-60 object-cover rounded-3xl shadow-2xl">
                         </div>
                         <div class="slide" data-index="1">
-                            <img src="./photos/bikes-3.png" alt="تفاصيل وسطية" class="w-60 h-60 object-cover rounded-3xl shadow-2xl">
+                            <img src="/assets/img/scooter-head.png" alt="تفاصيل وسطية" class="w-60 h-60 object-cover rounded-3xl shadow-2xl">
                         </div>
                         <div class="slide" data-index="2">
-                            <img src="./photos/bikes-2.png" alt="تفاصيل خلفية" class="w-60 h-60 object-cover rounded-3xl shadow-2xl">
+                            <img src="/assets/img/scooter-bottom.png" alt="تفاصيل خلفية" class="w-60 h-60 object-cover rounded-3xl shadow-2xl">
                         </div>
                     </div>
 
